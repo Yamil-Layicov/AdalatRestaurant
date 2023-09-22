@@ -1,5 +1,4 @@
 .navbar{
-
     position: fixed;
     z-index: 3;
     width: 100%;
@@ -7,13 +6,10 @@
     padding-left:50px;
     padding-right:80px;
     img{
-        width: 100px;
+        width: 70px;
         border-radius: 100%;
     }
-
-    .logo{
-        
-    }
+   
 
     .navLink{
         display: flex;
@@ -31,9 +27,16 @@
             }
         }
     }
-    
-    
+
+.navActive{
+    color: black !important;
 }
+}
+
+.navbarActive{
+    background-color: rgba(246, 246, 246, 0.896) !important;
+}
+
 
 @media(max-width:1000px) {
     .navbar{
