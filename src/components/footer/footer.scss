@@ -1,13 +1,39 @@
 .footer {
   width: 100%;
 
-  .manyDivs {
-    display: flex;
+  .upFooter{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+    padding: 50px 120px;
+    gap: 30px;
 
-    div {
-      width: 10px;
-      height: 10px;
-      background-color: black;
+
+    .boxFooter{
+      position: relative;
+      .icon{
+        font-size: 22px;
+      }
+
+      .emailSend{
+        display: flex;
+        border: 1px solid black;
+        width: 240px;
+        border-radius: 7px;
+        input{
+          outline: none;
+          border: none;
+          padding: 7px;
+        }
+
+      .sendBtn{
+        width: 45px;
+        background-color: chocolate;
+        border-radius: 0 7px 7px 0;
+      }
+      }
     }
+    
   }
+  
 }
