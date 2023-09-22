@@ -1,0 +1,46 @@
+.navbar{
+
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    background-color: transparent !important;
+    padding-left:50px;
+    padding-right:80px;
+    img{
+        width: 100px;
+        border-radius: 100%;
+    }
+
+    .logo{
+        
+    }
+
+    .navLink{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        font-size: 18px;
+        color: white;
+
+        div{
+            transition: all .3s ease-in-out;
+            &:hover{
+                cursor: pointer;
+                color: chocolate;
+            }
+        }
+    }
+    
+    
+}
+
+@media(max-width:1000px) {
+    .navbar{
+        background-color: #F8F9FA !important;
+
+        .navLink{
+            color: black;
+        }
+    }
+}
