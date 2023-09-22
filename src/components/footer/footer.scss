@@ -1,3 +1,13 @@
-.footer{
-    width: 100%;
+.footer {
+  width: 100%;
+
+  .manyDivs {
+    display: flex;
+
+    div {
+      width: 10px;
+      height: 10px;
+      background-color: black;
+    }
+  }
 }

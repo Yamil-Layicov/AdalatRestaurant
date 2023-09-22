@@ -141,7 +141,7 @@
     padding: 30px 20px !important;
 
     h1 {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     p:first-child{
@@ -151,6 +151,12 @@
 
     p {
       font-size: 15px;
+    }
+
+    button{
+      font-size: 13px;
+      padding: 4px 8px !important;
+      font-weight: 500 !important;
     }
   }
 
@@ -165,4 +171,5 @@
       height: 70px !important;
     }
   }
+
 }
