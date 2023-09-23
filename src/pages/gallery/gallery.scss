@@ -89,4 +89,19 @@
             }
           }
     }
+
+    .imgBox{
+        width: 85%;
+        margin: auto;
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         grid-auto-flow: dense;
+         gap: 20px;
+
+         img{
+            width: 340px;
+            height: 200px;
+            background-color: red;
+         }
+    }
 }
