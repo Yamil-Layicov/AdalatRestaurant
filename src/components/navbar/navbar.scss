@@ -18,7 +18,9 @@
         font-size: 18px;
         color: white;
 
-        div{
+        .link{
+            text-decoration: none;
+            color: white;
             transition: all .3s ease-in-out;
             &:hover{
                 cursor: pointer;
@@ -29,6 +31,10 @@
 
 .navActive{
     color: black !important;
+
+    .link{
+        color: black;
+    }
 }
 }
 
@@ -43,7 +49,11 @@
         background-color: #F8F9FA !important;
 
         .navLink{
-            color: black;
+            color: black !important;
+
+            .link{
+                color: black;
+            }
         }
     }
 }

@@ -1,6 +1,17 @@
 import "./menu.scss";
+import {useNavigate} from 'react-router-dom'
 
 const Menu = () => {
+
+  const navigate = useNavigate()
+
+  const routeLink = () => {
+    navigate('/menu')
+    window.scrollTo({
+      top:0
+    })
+  }
+
   return (
     <div className="menu">
       <h1>Gündəlik Menyu</h1>
@@ -9,7 +20,7 @@ const Menu = () => {
           <p>SPECIAL OFFER</p>
           <h1>Burgher Menu $18 only</h1>
           <p>Hamburgher, Chips, Mix Sausages</p>
-          <button>Daha ətraflı</button>
+          <button onClick={routeLink}>Daha ətraflı</button>
           <div className="backColor"></div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import HomeLayout from '../pages/homeLayout/HomeLayout'
 import Home from '../pages/home/Home'
-import Menu from '../pages/menu/Menu'
+import MenuPage from '../pages/menu/MenuPage'
 import Gallery from '../pages/gallery/Gallery'
 import About from '../pages/about/About'
 import Reservation from '../pages/reservation/Reservation'
@@ -19,7 +19,7 @@ const routes = [
       },
       {
         path: 'menu',
-        element: <Menu />,
+        element: <MenuPage />,
       },
       {
         path: 'gallery',

@@ -1,10 +1,9 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.scss'
 import { useEffect, useState } from 'react';
+import {NavLink} from 'react-router-dom'
 
 
 
@@ -20,6 +19,12 @@ function Header() {
       setNavbar(false);
     }
   };
+
+  const moveToTop = () => {
+    window.scrollTo({
+      top:0,
+    })
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', changeBackground);
@@ -39,11 +44,11 @@ function Header() {
           <Nav className="me-auto">
           </Nav>
           <Nav className={`navLink ${navbar && "navActive"}`}>
-            <div>Əsas</div>
-            <div>Menyu</div>
-            <div>Gallery</div>
-            <div>About</div>
-            <div className='reservation'>Rezervasiya</div>
+            <NavLink onClick={() => moveToTop()} to='/' className='link'>Əsas</NavLink>
+            <NavLink onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
+            <NavLink onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
+            <NavLink onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink>
+            <NavLink onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink>
           </Nav>
         </Navbar.Collapse>  
     </Navbar>
