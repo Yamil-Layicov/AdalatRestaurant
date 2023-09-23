@@ -5,6 +5,7 @@ import WifiCalling3OutlinedIcon from "@mui/icons-material/WifiCalling3Outlined";
 import fbc from "../../assets/socials/facebook_icon.svg";
 import ins from "../../assets/socials/instagram_icon.svg";
 import twt from "../../assets/socials/twitter_icon.svg";
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 
 const Footer = () => {
   return (
@@ -60,7 +61,7 @@ const Footer = () => {
           <h5>Əlaqə saxlayın</h5>
           <div className="emailSend">
             <input type="text" placeholder="E-poçt" />
-            <div className="sendBtn"></div>
+            <div className="sendBtn"><ChevronRightOutlinedIcon fontSize="medium"/></div>
           </div>
         </div>
       </div>
