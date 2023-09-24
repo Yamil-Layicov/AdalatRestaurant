@@ -6,6 +6,14 @@ import About from '../pages/about/About'
 import Reservation from '../pages/reservation/Reservation'
 import Login from '../pages/login/Login'
 import Error404 from '../pages/error404/Error404'
+import PrivateRoute from './PrivateRoute'
+import AdminLayout from '../admin/adminLayout/AdminLayout'
+import AdminHome from '../admin/pages/home/AdminHome'
+import Users from '../admin/pages/users/Users'
+import AdminAbout from '../admin/pages/about/AdminAbout'
+import AdminFooter from '../admin/pages/footer/AdminFooter'
+import AdminGallery from '../admin/pages/gallery/AdminGallery'
+import AdminReservation from '../admin/pages/reservation/AdminReservation'
 
 
 const routes = [
@@ -43,40 +51,36 @@ const routes = [
     path: '*',
     element: <Error404/>,
   },
-  // {
-  //   path: '/admin',
-  //   element: <AdminLayout />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <PrivateRoute><AdminHome /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'profil',
-  //       element: <PrivateRoute><AdminUsers /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'about',
-  //       element: <PrivateRoute><AdminAbout /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'footer',
-  //       element: <PrivateRoute><AdminFooter /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'amburan',
-  //       element: <PrivateRoute><AdminAmburan /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'badamdar',
-  //       element: <PrivateRoute><AdminBadamdar /></PrivateRoute>,
-  //     },
-  //     {
-  //       path: 'reservation',
-  //       element: <PrivateRoute><ReservationAdmin /></PrivateRoute>,
-  //     },
-  //   ],
-  // },
+  {
+    path: '/admin',
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <PrivateRoute><AdminHome /></PrivateRoute>,
+      },
+      {
+        path: 'profil',
+        element: <PrivateRoute><Users/></PrivateRoute>,
+      },
+      {
+        path: 'about',
+        element: <PrivateRoute><AdminAbout /></PrivateRoute>,
+      },
+      {
+        path: 'footer',
+        element: <PrivateRoute><AdminFooter /></PrivateRoute>,
+      },
+      {
+        path: 'gallery',
+        element: <PrivateRoute><AdminGallery/></PrivateRoute>,
+      },
+      {
+        path: 'reservation',
+        element: <PrivateRoute><AdminReservation/></PrivateRoute>,
+      },
+    ],
+  },
 
 ];
 

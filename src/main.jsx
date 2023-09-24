@@ -1,7 +1,8 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import "./index.scss";
 import { BrowserRouter } from "react-router-dom";
-import './styles/global.scss'
+import { AuthProvider } from "./context/AuthContext.jsx";
 import {
   QueryClient,
   QueryClientProvider,
@@ -11,8 +12,10 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+    <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
+    </AuthProvider>
   </BrowserRouter>
 );

@@ -44,11 +44,11 @@ function Header() {
           <Nav className="me-auto">
           </Nav>
           <Nav className={`navLink ${navbar && "navActive"}`}>
-            <NavLink onClick={() => moveToTop()} to='/' className='link'>Əsas</NavLink>
-            <NavLink onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
-            <NavLink onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
-            <NavLink onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink>
-            <NavLink onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/' className='link'>Əsas</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink>
           </Nav>
         </Navbar.Collapse>  
     </Navbar>
