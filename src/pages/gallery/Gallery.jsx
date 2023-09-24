@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import "./gallery.scss";
 import img from "./menuImg.png";
-import Modal from "./modal/Modal";
+const Modal = lazy(() => import("./modal/Modal"));
 
 const Gallery = () => {
   const images = [
@@ -107,21 +107,25 @@ const Gallery = () => {
       <div className="imgBoxContent">
         <div className="imgBox">
           {images.map((img, index) => (
-            <div key={img.id} onClick={() => openModal(index)}>
+            <div className="img" key={img.id} onClick={() => openModal(index)}>
               <img src={img.title} alt={`Image ${img.id}`} />
             </div>
           ))}
         </div>
       </div>
 
-      <Modal
-        showModal={showModal}
-        closeModal={closeModal}
-        images={images}
-        currentIndex={currentIndex}
-        handleNext={handleNext}
-        handlePrev={handlePrev}
-      />
+      {showModal && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Modal
+            showModal={showModal}
+            closeModal={closeModal}
+            images={images}
+            currentIndex={currentIndex}
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };
