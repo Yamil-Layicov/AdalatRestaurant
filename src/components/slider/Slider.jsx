@@ -2,7 +2,8 @@ import "./slider.scss";
 import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Slider = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,11 +16,11 @@ const Slider = () => {
     setCurrentPage(currentPage === 1 ? 3 : currentPage - 1);
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const moveToReservPage = () => {
-    navigate('/reservation')
-  }
+    navigate("/reservation");
+  };
 
   return (
     <div className="slider">
@@ -39,47 +40,98 @@ const Slider = () => {
       </div>
       <div className="sliderContent">
         {currentPage === 1 && (
-          <div>
+          <div className="firstBox">
             <img
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               alt=""
             />
             <div className="sliderText">
-              <h1>
+              <motion.h1
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, delay: 0.1 }}
+              >
                 Taste <br /> Uique Food
-              </h1>
-              <h4>Cooking delicuos food since 2005</h4>
-              <button onClick={moveToReservPage}>Rezerv edin</button>
+              </motion.h1>
+              <motion.h4
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.5 }}
+              >
+                Cooking delicuos food since 2005
+              </motion.h4>
+              <motion.button
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.8 }}
+                onClick={moveToReservPage}
+              >
+                Rezerv edin
+              </motion.button>
             </div>
           </div>
         )}
         {currentPage === 2 && (
-          <div>
+          <div className="secondBox">
             <img
-              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              src="https://images.unsplash.com/photo-1651873491993-29f701fa520d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               alt=""
             />
             <div className="sliderText">
-              <h1>
+              <motion.h1
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, delay: 0.1 }}
+              >
                 Taste <br /> Uique Food
-              </h1>
-              <h4>Cooking delicuos food since 2005</h4>
-              <button onClick={moveToReservPage}>Rezerv edin</button>
+              </motion.h1>
+              <motion.h4
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.5 }}
+              >
+                Cooking delicuos food since 2005
+              </motion.h4>
+              <motion.button
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.8 }}
+                onClick={moveToReservPage}
+              >
+                Rezerv edin
+              </motion.button>
             </div>
           </div>
         )}
         {currentPage === 3 && (
-          <div>
+          <div className="thirdBox">
             <img
-              src="https://images.unsplash.com/photo-1462539405390-d0bdb635c7d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1840&q=80"
+              src="https://images.unsplash.com/photo-1650774894359-c13578ced641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1994&q=80"
               alt=""
             />
             <div className="sliderText">
-              <h1>
+              <motion.h1
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, delay: 0.1 }}
+              >
                 Taste <br /> Uique Food
-              </h1>
-              <h4>Cooking delicuos food since 2005</h4>
-              <button onClick={moveToReservPage}>Rezerv edin</button>
+              </motion.h1>
+              <motion.h4
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+              >
+                Cooking delicuos food since 2005
+              </motion.h4>
+              <motion.button
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, delay: 0.8 }}
+                onClick={moveToReservPage}
+              >
+                Rezerv edin
+              </motion.button>
             </div>
           </div>
         )}

@@ -14,6 +14,7 @@ import AdminAbout from '../admin/pages/about/AdminAbout'
 import AdminFooter from '../admin/pages/footer/AdminFooter'
 import AdminGallery from '../admin/pages/gallery/AdminGallery'
 import AdminReservation from '../admin/pages/reservation/AdminReservation'
+import AdminMenuPage from '../admin/pages/menu/AdminMenuPage'
 
 
 const routes = [
@@ -70,6 +71,10 @@ const routes = [
       {
         path: 'footer',
         element: <PrivateRoute><AdminFooter /></PrivateRoute>,
+      },
+      {
+        path: 'menu',
+        element: <PrivateRoute><AdminMenuPage /></PrivateRoute>,
       },
       {
         path: 'gallery',

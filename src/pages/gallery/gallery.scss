@@ -123,11 +123,18 @@
       display: grid;
       grid-template-columns: repeat(1, 1fr) !important;
 
-      img {
-        width: 700px !important;
-        height: 300px !important;
-        padding: 0 20px;
+     .img{
+
+      &::before{
+        transform: scale(0) !important;
       }
+     
+     }
+     img {
+      width: 700px !important;
+      height: 300px !important;
+      padding: 0 20px;
+    }
     }
   }
 

@@ -20,7 +20,7 @@ const AdminNavbar = () => {
     <div className="adminNavbar">
     <div className="logo">
       <img src="/logo.svg" alt="" />
-      <span>Hill admin</span>
+      <span>Adalat admin</span>
     </div>
     <div className="icons">
       <img src="/search.svg" className="icon"></img>
@@ -32,7 +32,7 @@ const AdminNavbar = () => {
       </div>
       <div className="user">
         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" />
-        <span>Jane</span>
+        <span>Jafar</span>
       </div>
       <div onClick={() => setShowLog(!showLog)} className='logOutAdmin'>
         <img src="/setting.svg" className="icon"/>

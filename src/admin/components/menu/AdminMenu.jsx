@@ -39,14 +39,14 @@ const menu = [
       },
       {
         id: 3,
-        title: "Badamdar",
-        url: "/admin/badamdar",
+        title: "Menyu",
+        url: "/admin/menu",
         icon: "/order.svg",
       },
       {
         id: 4,
-        title: "Amburan",
-        url: "/admin/Amburan",
+        title: "Qalereya",
+        url: "/admin/gallery",
         icon: "/post2.svg",
       },
     ],
