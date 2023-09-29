@@ -1,4 +1,5 @@
-import { FormWrapper } from "../pages/reservation/reservationSteps/formWrapper/FormWrapper"
+import { FormWrapper } from "../formWrapper/FormWrapper"
+import './personalInfo.scss'
 
 
 const FinishInputs = ({updateFields, fullName, email, phone, note}) => {

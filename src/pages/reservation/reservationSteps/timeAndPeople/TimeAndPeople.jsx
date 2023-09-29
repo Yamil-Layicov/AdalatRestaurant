@@ -1,8 +1,9 @@
-import { FormWrapper } from "../pages/reservation/reservationSteps/formWrapper/FormWrapper";
+import { FormWrapper } from "../formWrapper/FormWrapper";
+import './timeAndPeople.scss'
 
-export function TimePeople({updateFields, timeHour, timeMin, guests}) {
+export function TimeAndPeople({updateFields, timeHour, timeMin, guests}) {
  
-
+  
   const handleHoursChange = (event) => {
     const newHours = event.target.value;
     if (newHours <= 23) {

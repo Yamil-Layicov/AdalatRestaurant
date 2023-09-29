@@ -3,9 +3,9 @@ import "./reservation.scss";
 import img from "./menuImg.png";
 import { useMultistepForm } from "../../hooks/useMultiStepForm";
 import { ResNames } from "./reservationSteps/resNames/ResNames";
-import { TimePeople } from "../../hooks/TimePeople";
+import { TimeAndPeople } from "./reservationSteps/timeAndPeople/TimeAndPeople";
 import { CalendarForm } from "./reservationSteps/calendarForm/CalendarForm";
-import FinishInputs from "../../hooks/FinishInputs";
+import PersonalInfo from "./reservationSteps/personalInfo/PersonalInfo";
 
 
 const INITIAL_DATA = {
@@ -102,14 +102,31 @@ const Reservation = () => {
         activeDayData={activeDayData}
         setActiveDayData={setActiveDayData}
       />,
-      <TimePeople key={data} {...data} updateFields={updateFields} />,
-      <FinishInputs key={data} {...data} updateFields={updateFields} />,
+      <TimeAndPeople key={data} {...data} updateFields={updateFields} />,
+      <PersonalInfo key={data} {...data} updateFields={updateFields} />,
     ]);
 
   function onSubmit(e) {
     e.preventDefault();
-    if (!isLastStep) return next();
-    alert("asd");
+    // if (!isLastStep) return next();
+
+    const { resName, timeHour, timeMin, guests, email, phone, note, currentDate} = data;
+
+
+      fetch('https://api.hill.az/api/reservation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
