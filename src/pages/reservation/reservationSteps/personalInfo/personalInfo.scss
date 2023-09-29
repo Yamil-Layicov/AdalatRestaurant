@@ -1,0 +1,29 @@
+.personalInfo{
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0.471);
+    border-radius: 5px;
+
+    .personalBox{
+        display: flex;
+        flex-direction: column;
+
+        label{
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        input, textarea{
+            outline: none;
+            padding: 12px;
+            border: 1px solid rgba(128, 128, 128, 0.489);
+            font-size: 18px;
+            margin: 10px 0;
+            position: relative;
+        }
+    }
+
+    
+}

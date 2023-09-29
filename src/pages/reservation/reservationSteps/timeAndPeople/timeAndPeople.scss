@@ -1,0 +1,59 @@
+.timeAndPeople{
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0.471);
+    border-radius: 5px;
+
+    
+
+    label{
+        font-size: 19px;
+        font-weight: 500;
+    }
+
+    .timeSection{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        .hourSection, .minuteSection{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input{
+            outline: none;
+            padding: 12px;
+            width: 200px;
+            border: 1px solid rgba(128, 128, 128, 0.489);
+            font-size: 18px;
+            margin: 10px 0;
+            position: relative;
+
+            &:nth-child(2){
+                &::after{
+                    content: "asdasdasd:";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+    
+        }
+    }
+
+    .peopleSection{
+        display: flex;
+        flex-direction: column;
+
+        input{
+            outline: none;
+            padding: 12px;
+            border: 1px solid rgba(128, 128, 128, 0.489);
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    }
+}

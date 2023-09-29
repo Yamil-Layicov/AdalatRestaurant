@@ -7,7 +7,6 @@ import { TimeAndPeople } from "./reservationSteps/timeAndPeople/TimeAndPeople";
 import { CalendarForm } from "./reservationSteps/calendarForm/CalendarForm";
 import PersonalInfo from "./reservationSteps/personalInfo/PersonalInfo";
 
-
 const INITIAL_DATA = {
   resName: "",
   currentDate: [],
@@ -21,58 +20,6 @@ const INITIAL_DATA = {
 };
 
 const Reservation = () => {
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   surname: "",
-  //   email: "",
-  //   phone: "",
-  //   date: "",
-  //   time: "",
-  //   person_count: "",
-  //   note: "",
-  // });
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({ ...prevData, [name]: value }));
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { name, surname, email, phone, date, time, person_count } = formData;
-
-  //   if (
-  //     !name ||
-  //     !surname ||
-  //     !email ||
-  //     !phone ||
-  //     !date ||
-  //     !time ||
-  //     !person_count
-  //   ) {
-  //     toast.error("Bütün sahələri doldurun");
-  //     return;
-  //   }
-
-  //   fetch("https://api.hill.az/api/reservation", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       toast.success("rezervasiya olundu");
-  //       setTimeout(() => {
-  //         window.location.reload();
-  //       }, 500);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const [activeResName, setActiveResName] = useState(null);
   const [activeDayData, setActiveDayData] = useState(null);
 
@@ -105,20 +52,28 @@ const Reservation = () => {
       <TimeAndPeople key={data} {...data} updateFields={updateFields} />,
       <PersonalInfo key={data} {...data} updateFields={updateFields} />,
     ]);
+  const {
+    resName,
+    timeHour,
+    timeMin,
+    guests,
+    email,
+    phone,
+    note,
+    currentDate,
+  } = data;
 
   function onSubmit(e) {
+
     e.preventDefault();
-    // if (!isLastStep) return next();
+    if (!isLastStep) return next();
 
-    const { resName, timeHour, timeMin, guests, email, phone, note, currentDate} = data;
-
-
-      fetch('https://api.hill.az/api/reservation', {
-      method: 'POST',
+    fetch("https://api.hill.az/api/reservation", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -143,7 +98,9 @@ const Reservation = () => {
 
       <div className="reservationPage">
         <form onSubmit={onSubmit}>
-          <div className="stepsNums">{currentStepIndex + 1}/{steps.length}</div>
+          <div className="stepsNums">
+            {currentStepIndex + 1}/{steps.length}
+          </div>
           {step}
           <hr />
           <div className="buttons">
