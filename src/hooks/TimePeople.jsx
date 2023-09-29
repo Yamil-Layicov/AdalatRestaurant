@@ -1,4 +1,4 @@
-import { FormWrapper } from "./FormWrapper";
+import { FormWrapper } from "../pages/reservation/reservationSteps/formWrapper/FormWrapper";
 
 export function TimePeople({updateFields, timeHour, timeMin, guests}) {
  

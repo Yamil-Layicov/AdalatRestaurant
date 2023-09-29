@@ -1,9 +1,11 @@
+import './formWrapper.scss'
+
 export function FormWrapper({ title, children }) {
   return (
-    <div >
-      <h2 style={{ textAlign: "center", margin: "0", marginBottom: "2rem" }}>
+    <div className='formWrapper'>
+      <h3>
         {title}
-      </h2>
+      </h3>
       <div
       >
         {children}

@@ -1,7 +1,7 @@
-import { FormWrapper } from "./FormWrapper";
-import './TitleForm.scss'
+import { FormWrapper } from "../formWrapper/FormWrapper";
+import './resNames.scss'
 
-export function ChooseResName({ updateFields, activeResName, setActiveResName }) {
+export function ResNames({ updateFields, activeResName, setActiveResName }) {
 
   const restNames = [
     { id: 1, value: "Hill Badamdar" },
@@ -15,7 +15,7 @@ export function ChooseResName({ updateFields, activeResName, setActiveResName })
 
   return (
     <FormWrapper title="Restoran seçin">
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <div className="resNamesContent">
         {restNames.map((item) => (
           <div  
             key={item.id}

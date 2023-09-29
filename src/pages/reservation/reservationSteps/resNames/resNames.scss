@@ -1,0 +1,29 @@
+.resNamesContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  border-radius: 5px;
+  padding:60px;
+  background-color: white;
+
+  .activeResName {
+    background-color: chocolate;
+    color: white;
+  }
+
+  .restoranName {
+    padding: 0 20px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.384);
+    cursor: pointer;
+  }
+}

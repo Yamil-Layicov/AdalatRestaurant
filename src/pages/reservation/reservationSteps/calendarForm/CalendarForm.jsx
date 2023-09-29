@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { FormWrapper } from "./FormWrapper";
+import { FormWrapper } from "../formWrapper/FormWrapper";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import './calendarForm.scss';
 
 const daysOfWeek = [
   "Bazar",
@@ -28,7 +29,7 @@ const months = [
   "Dekabr",
 ];
 
-export function AddressForm({updateFields, activeDayData, setActiveDayData}) {
+export function CalendarForm({updateFields, activeDayData, setActiveDayData}) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -50,7 +51,7 @@ export function AddressForm({updateFields, activeDayData, setActiveDayData}) {
 
     for (let i = 1; i <= totalDaysInMonth; i++) {
       calendarDays.push(
-        <div key={i} className={`calendar-day ${activeDayData === i && "alma"}`} onClick={() => handleDayClick(i)}>
+        <div key={i} className={`calendar-day ${activeDayData === i && "activeDay"}`} onClick={() => handleDayClick(i)}>
           {i}
         </div>
       );
@@ -99,7 +100,7 @@ export function AddressForm({updateFields, activeDayData, setActiveDayData}) {
             </div>
           ))}
         </div>
-        <div className="sadasd">{renderCalendarDays()}</div>
+        <div className="dayBox">{renderCalendarDays()}</div>
       </div>
     </FormWrapper>
   );

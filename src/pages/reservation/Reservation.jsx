@@ -1,61 +1,116 @@
 import { useState } from "react";
 import "./reservation.scss";
-import { toast } from "react-toastify";
 import img from "./menuImg.png";
+import { useMultistepForm } from "../../hooks/useMultiStepForm";
+import { ResNames } from "./reservationSteps/resNames/ResNames";
+import { TimePeople } from "../../hooks/TimePeople";
+import { CalendarForm } from "./reservationSteps/calendarForm/CalendarForm";
+import FinishInputs from "../../hooks/FinishInputs";
 
+
+const INITIAL_DATA = {
+  resName: "",
+  currentDate: [],
+  timeHour: "",
+  timeMin: "",
+  guests: "",
+  fullName: "",
+  email: "",
+  phone: "",
+  note: "",
+};
 
 const Reservation = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "",
-    person_count: "",
-    note: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   surname: "",
+  //   email: "",
+  //   phone: "",
+  //   date: "",
+  //   time: "",
+  //   person_count: "",
+  //   note: "",
+  // });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({ ...prevData, [name]: value }));
+  // };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { name, surname, email, phone, date, time, person_count } = formData;
+
+  //   if (
+  //     !name ||
+  //     !surname ||
+  //     !email ||
+  //     !phone ||
+  //     !date ||
+  //     !time ||
+  //     !person_count
+  //   ) {
+  //     toast.error("Bütün sahələri doldurun");
+  //     return;
+  //   }
+
+  //   fetch("https://api.hill.az/api/reservation", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       toast.success("rezervasiya olundu");
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 500);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const [activeResName, setActiveResName] = useState(null);
+  const [activeDayData, setActiveDayData] = useState(null);
+
+  const [data, setData] = useState(INITIAL_DATA);
+
+  console.log(data);
+
+  function updateFields(fields) {
+    setData((prev) => {
+      return { ...prev, ...fields };
+    });
+  }
+
+  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
+    useMultistepForm([
+      <ResNames
+        key={data}
+        {...data}
+        updateFields={updateFields}
+        activeResName={activeResName}
+        setActiveResName={setActiveResName}
+      />,
+      <CalendarForm
+        key={data}
+        {...data}
+        updateFields={updateFields}
+        activeDayData={activeDayData}
+        setActiveDayData={setActiveDayData}
+      />,
+      <TimePeople key={data} {...data} updateFields={updateFields} />,
+      <FinishInputs key={data} {...data} updateFields={updateFields} />,
+    ]);
+
+  function onSubmit(e) {
     e.preventDefault();
-    const { name, surname, email, phone, date, time, person_count } = formData;
-
-    if (
-      !name ||
-      !surname ||
-      !email ||
-      !phone ||
-      !date ||
-      !time ||
-      !person_count
-    ) {
-      toast.error("Bütün sahələri doldurun");
-      return;
-    }
-
-    fetch("https://api.hill.az/api/reservation", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        toast.success("rezervasiya olundu");
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    if (!isLastStep) return next();
+    alert("asd");
+  }
 
   return (
     <div className="menuAndReservation">
@@ -68,49 +123,20 @@ const Reservation = () => {
           <p>2005-ci ildən ləzzətli və dadlı yeməklər bişiririk</p>
         </div>
       </div>
+
       <div className="reservationPage">
-        <h1>Rezervasiya</h1>
-        <form className="reserveForm" onSubmit={handleSubmit}>
-          <div className="firstName">
-            <label>Ad</label>
-            <input type="text" name="name" onChange={handleChange} />
+        <form onSubmit={onSubmit}>
+          <div className="stepsNums">{currentStepIndex + 1}/{steps.length}</div>
+          {step}
+          <hr />
+          <div className="buttons">
+            {!isFirstStep && (
+              <button type="button" onClick={back}>
+                Geri
+              </button>
+            )}
+            {<button type="submit">{isLastStep ? "Göndər" : "İrəli"}</button>}
           </div>
-          <div className="lastName">
-            <label>Soyad</label>
-            <input type="text" name="surname" onChange={handleChange} />
-          </div>
-          <div className="email">
-            <label>E-poçt</label>
-            <input type="email" name="email" onChange={handleChange} />
-          </div>
-          <div className="phone">
-            <label>Tel: nömrəsi</label>
-            <input type="tel" name="phone" onChange={handleChange} />
-          </div>
-          <div className="date">
-            <label>Tarix</label>
-            <input type="date" name="date" onChange={handleChange} />
-          </div>
-          <div className="time">
-            <label>Saat</label>
-            <input type="time" name="time" onChange={handleChange} />
-          </div>
-          <div className="numPeople">
-            <label>İnsan sayı</label>
-            <input type="number" name="person_count" onChange={handleChange} />
-          </div>
-          <div className="note">
-            <label>Qeyd</label>
-            <textarea
-              name="note"
-              cols="50"
-              rows="1"
-              onChange={handleChange}
-            ></textarea>
-          </div>
-          <button className="aboutEdit" type="submit">
-            Göndər
-          </button>
         </form>
       </div>
     </div>
