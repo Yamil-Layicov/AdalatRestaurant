@@ -6,6 +6,11 @@
     border: 1px solid rgba(128, 128, 128, 0.471);
     border-radius: 5px;
 
+    .phoneAndEmail{
+        display: flex;
+        gap: 20px;
+    }
+
     .personalBox{
         display: flex;
         flex-direction: column;
@@ -23,7 +28,35 @@
             margin: 10px 0;
             position: relative;
         }
+
+        textarea{
+            width: 480px;
+            height: 90px !important;
+        }
     }
 
     
+}
+
+@media (max-width:800px) {
+    .personalInfo{
+        width: 370px;
+        padding: 30px 10px;
+
+        .phoneAndEmail{
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .flexInput{
+            display: flex;
+            flex-direction: column;
+        }
+
+        textarea{
+            width: 350px !important;
+            height: 90px !important;
+        }
+    }
 }

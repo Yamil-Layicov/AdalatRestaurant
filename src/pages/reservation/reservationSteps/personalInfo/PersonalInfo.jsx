@@ -13,19 +13,23 @@ const FinishInputs = ({ updateFields, fullName, email, phone, note }) => {
               onChange={(e) => updateFields({ fullName: e.target.value })}
             />
           </div>
-          <div className="personalBox">
-            <label htmlFor="">Tel: nomresi</label>
-            <input
-              type="number"
-              onChange={(e) => updateFields({ phone: e.target.value })}
-            />
-          </div>
-          <div className="personalBox">
-            <label htmlFor="">Email</label>
-            <input
-              type="email"
-              onChange={(e) => updateFields({ email: e.target.value })}
-            />
+          <div>
+            <div className="phoneAndEmail">
+              <div className="personalBox">
+                <label htmlFor="">Tel: nomresi</label>
+                <input
+                  type="number"
+                  onChange={(e) => updateFields({ phone: e.target.value })}
+                />
+              </div>
+              <div className="personalBox">
+                <label htmlFor="">Email</label>
+                <input
+                  type="email"
+                  onChange={(e) => updateFields({ email: e.target.value })}
+                />
+              </div>
+            </div>
           </div>
           <div className="personalBox">
             <label htmlFor="">Qeyd</label>

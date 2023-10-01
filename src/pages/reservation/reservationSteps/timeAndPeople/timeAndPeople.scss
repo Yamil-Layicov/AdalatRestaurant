@@ -1,59 +1,78 @@
-.timeAndPeople{
-    background-color: white;
-    padding: 30px;
+.timeAndPeople {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(128, 128, 128, 0.471);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+
+  label {
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  .timeSection {
     display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(128, 128, 128, 0.471);
-    border-radius: 5px;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: white;
+    padding:30px 30px 15px 30px;
 
-    
 
-    label{
-        font-size: 19px;
-        font-weight: 500;
+    .hourSection,
+    .minuteSection {
+      display: flex;
+      flex-direction: column;
     }
 
-    .timeSection{
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
+    input {
+      outline: none;
+      padding: 12px;
+      width: 200px;
+      border: 1px solid rgba(128, 128, 128, 0.489);
+      font-size: 18px;
+      margin: 10px 0;
+      position: relative;
+      border-radius: 3px;
 
-        .hourSection, .minuteSection{
-            display: flex;
-            flex-direction: column;
+      &:nth-child(2) {
+        &::after {
+          content: "asdasdasd:";
+          position: absolute;
+          top: 0;
+          right: 0;
         }
+      }
+    }
+  }
 
-        input{
-            outline: none;
-            padding: 12px;
-            width: 200px;
-            border: 1px solid rgba(128, 128, 128, 0.489);
-            font-size: 18px;
-            margin: 10px 0;
-            position: relative;
+  .peopleSection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+     padding:15px 30px 30px 30px;
 
-            &:nth-child(2){
-                &::after{
-                    content: "asdasdasd:";
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
-            }
-    
-        }
+    input {
+      outline: none;
+      padding: 12px;
+      border: 1px solid rgba(128, 128, 128, 0.489);
+      font-size: 18px;
+      margin: 10px 0;
+      border-radius: 3px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .timeSection {
+      padding:15px 15px 7px 15px;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 160px;
+      }
     }
 
     .peopleSection{
-        display: flex;
-        flex-direction: column;
-
-        input{
-            outline: none;
-            padding: 12px;
-            border: 1px solid rgba(128, 128, 128, 0.489);
-            font-size: 18px;
-            margin: 10px 0;
-        }
+      padding:7px 15px 15px 15px;
     }
+  }
 }
