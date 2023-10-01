@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./reservation.scss";
 import img from "./menuImg.png";
 import { useMultistepForm } from "../../hooks/useMultiStepForm";
-import { ResNames } from "./reservationSteps/resNames/ResNames";
 import { TimeAndPeople } from "./reservationSteps/timeAndPeople/TimeAndPeople";
 import { CalendarForm } from "./reservationSteps/calendarForm/CalendarForm";
 import PersonalInfo from "./reservationSteps/personalInfo/PersonalInfo";
@@ -35,13 +34,6 @@ const Reservation = () => {
 
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
-      <ResNames
-        key={data}
-        {...data}
-        updateFields={updateFields}
-        activeResName={activeResName}
-        setActiveResName={setActiveResName}
-      />,
       <CalendarForm
         key={data}
         {...data}

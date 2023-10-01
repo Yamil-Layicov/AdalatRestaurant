@@ -34,10 +34,10 @@ const routes = [
         path: 'gallery',
         element: <Gallery />,
       },
-      {
-        path: 'about',
-        element: <About />,
-      },
+      // {
+      //   path: 'about',
+      //   element: <About />,
+      // },
       {
         path: 'reservation',
         element: <Reservation />,

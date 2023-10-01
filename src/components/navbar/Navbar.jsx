@@ -47,7 +47,7 @@ function Header() {
             <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/' className='link'>Əsas</NavLink>
             <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
             <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
-            <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink>
+            {/* <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink> */}
             <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink>
           </Nav>
         </Navbar.Collapse>  
