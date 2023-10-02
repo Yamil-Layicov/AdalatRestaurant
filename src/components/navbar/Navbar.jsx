@@ -10,6 +10,7 @@ import {NavLink} from 'react-router-dom'
 function Header() {
 
   const [navbar, setNavbar] = useState(false);
+  const [isMenuCollapsed, setIsMenuCollapsed] = useState(true);
 
 
   const changeBackground = () => {
@@ -34,13 +35,16 @@ function Header() {
     };
   }, []);
 
+
+
+  
   return (
     <Navbar collapseOnSelect expand="lg" className={`bg-body-tertiary navbar ${navbar && "navbarActive"}`}>
         <div className='logo'>
           <img src="https://us.123rf.com/450wm/benidict83/benidict832008/benidict83200800014/153588168-plate-with-fork-and-spoon-restaurant-logo.jpg?ver=6" alt="" />
         </div>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" className='menuIcon'/>
-        <Navbar.Collapse id="responsive-navbar-nav" className='menuText'>
+        <Navbar.Toggle  aria-controls="responsive-navbar-nav" className='menuIcon'/>
+        <Navbar.Collapse id="responsive-navbar-nav show" className='menuText'>
           <Nav className="me-auto">
           </Nav>
           <Nav className={`navLink ${navbar && "navActive"}`}>

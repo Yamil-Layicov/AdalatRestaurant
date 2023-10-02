@@ -1,35 +1,35 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./editModal1.scss";
 
 const EditModal1 = ({ setEditPage1 }) => {
-  const [footerContent2, setFooterContent2] = useState("");
+  const [footerData, setFooterData] = useState({ address: "", opening_hours: "", reservation: "" });
 
   useEffect(() => {
-    fetch("https://api.hill.az/api/footer/2")
+    fetch("https://api.nane.az/api/footer")
       .then((res) => res.json())
-      .then((res) => {
-        setFooterContent2(res.content), console.log(res);
+      .then(({ address, opening_hours, reservation }) => {
+        setFooterData({ address, opening_hours, reservation });
+        console.log(res);
       });
   }, []);
 
-  const handleTextChange = (e) => {
-    setFooterContent2(e.target.value);
+  const handleTextChange = (field, value) => {
+    setFooterData((prevData) => ({ ...prevData, [field]: value }));
   };
 
   const handleUpload = (e) => {
     e.preventDefault();
 
-    fetch("https://api.hill.az/api/footer/2", {
+    fetch("https://api.nane.az/api/footer", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content: footerContent2 }),
+      body: JSON.stringify(footerData),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log("PUT response:", res);
-        window.location.reload()
       });
   };
 
@@ -40,13 +40,17 @@ const EditModal1 = ({ setEditPage1 }) => {
           onSubmit={handleUpload}
           style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         >
-          <textarea
-            value={footerContent2 || ""}
-            onChange={handleTextChange}
-            cols="45"
-            rows="17"
-            type="text"
-          />
+          {["address", "opening_hours", "reservation"].map((field) => (
+            <textarea
+              key={field}
+              name={field}
+              value={footerData[field] || ""}
+              onChange={(e) => handleTextChange(field, e.target.value)}
+              cols="45"
+              rows="17"
+              type="text"
+            />
+          ))}
           <button type="submit">Yadda saxla</button>
         </form>
       </div>

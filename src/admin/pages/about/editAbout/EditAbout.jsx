@@ -3,53 +3,41 @@ import "./editAnout.scss";
 
 const EditAbout = ({ setEditPage }) => {
   const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
+  
 
-  const [image_1, setImage1] = useState(null);
-  const [image_2, setImage2] = useState(null);
-  const [previousImage1, setPreviousImage1] = useState(null);
-  const [previousImage2, setPreviousImage2] = useState(null);
+  const [image, setImage] = useState(null);
+  const [previousImage, setPreviousImage] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.hill.az/api/about/1")
+    fetch("https://api.nane.az/api/about")
       .then((res) => res.json())
-      .then((res) => setContent(res.content));
+      .then((res) => {setContent(res.content), setTitle(res.title)});
   }, []);
 
-  const handleImage1Change = (e) => {
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage1(file);
+    setImage(file);
 
     if (file) {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        setPreviousImage1(e.target.result);
+        setPreviousImage(e.target.result);
       };
 
       reader.readAsDataURL(file);
     } else {
-      setPreviousImage1(null);
+      setPreviousImage(null);
     }
   };
 
-  const handleImage2Change = (e) => {
-    const file = e.target.files[0];
-    setImage2(file);
 
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        setPreviousImage2(e.target.result);
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      setPreviousImage1(null);
-    }
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
   };
 
-  const handleTextChange = (e) => {
+  const handleContentChange = (e) => {
     setContent(e.target.value);
   };
 
@@ -58,51 +46,49 @@ const EditAbout = ({ setEditPage }) => {
 
     const formData = new FormData();
     formData.append("content", content);
-    formData.append("image_1", image_1);
-    formData.append("image_2", image_2);
+    formData.append("title", title);
+    formData.append("image", image);
 
-    fetch("https://api.hill.az/api/about", {
+    fetch("https://api.nane.az/api/about", {
       method: "POST",
       body: formData,
     }); 
 
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 1000);
   };
 
   return (
     <div className="mainEditModal">
       <div className="editModal">
         <form onSubmit={handleUpload}>
+        <h3>Content</h3>
           <textarea
             value={content || ""}
-            onChange={handleTextChange}
+            onChange={handleContentChange}
+            cols="60"
+            rows="15"
+            type="text"
+          />
+          <h3>Tittle</h3>
+          <textarea
+            value={title || ""}
+            onChange={handleTitleChange}
             cols="60"
             rows="15"
             type="text"
           />
           <div className="imgagesFiles">
             <div>
-              <h3>Big Image 1</h3>
-              {previousImage1 && (
-                <img src={previousImage1} alt="Previous Image 1" />
+              <h3>Image</h3>
+              {previousImage && (
+                <img src={previousImage} alt="Previous Image 2" />
               )}
               <input
                 type="file"
                 accept="image/*"
-                onChange={handleImage1Change}
-              />
-            </div>
-            <div>
-              <h3>Small Image 2</h3>
-              {previousImage2 && (
-                <img src={previousImage2} alt="Previous Image 2" />
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImage2Change}
+                onChange={handleImageChange}
               />
             </div>
           </div>

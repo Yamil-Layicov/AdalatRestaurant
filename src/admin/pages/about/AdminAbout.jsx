@@ -8,9 +8,9 @@ const AdminAbout = () => {
   const [editPage, setEditPage] = useState(false);
 
   useEffect(() => {
-    fetch("https://api.hill.az/api/about/1")
+    fetch("https://api.nane.az/api/about")
       .then((res) => res.json())
-      .then((res) => setAboutData(res));
+      .then((res) => {setAboutData(res), console.log(res)});
   }, []);
 
   const handleAboutEdit = () => {
@@ -22,20 +22,26 @@ const AdminAbout = () => {
       <h1>Haqqımızda</h1>
       <div className="mainContent">
         <div key={aboutData.id}>
-          {/* {aboutData.content && (
+          {aboutData.content && (
             <div>
               <div>
+                
                 {aboutData.content.split("\n").map((data) => (
                   <p key={data} style={{ marginBottom: "30px" }}>
                     {data}
                   </p>
                 ))}
               </div>
-              <img style={{ marginRight: "20px" }} src={aboutData.image_1} alt="" />
-              <img src={aboutData.image_2} alt="" />
+              <div>
+                {aboutData.title.split("\n").map((data) => (
+                  <p key={data} style={{ marginBottom: "30px" }}>
+                    {data}
+                  </p>
+                ))}
+              </div>
+              <img style={{ marginRight: "20px" }} src={aboutData.image} alt="" />
             </div>
-          )} */}
-          <h1>Content</h1>
+          )}
         </div>
         <div>
           <button onClick={handleAboutEdit} className="aboutEdit">

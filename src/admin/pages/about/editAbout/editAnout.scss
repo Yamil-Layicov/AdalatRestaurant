@@ -2,7 +2,7 @@
     &::after{
         content: '';
         background-color: rgba(0, 0, 0, 0.719);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -63,6 +63,7 @@
       padding: 20px;
       font-size: 17px;
       outline: none;
+      height: 150px;
     }
 
 

@@ -52,7 +52,7 @@ const AdminGallery = () => {
     formData.append("image", file);
 
     try {
-      const response = await fetch("https://api.hill.az/api/amburan-gallery", {
+      const response = await fetch("https://api.nane.az/api/gallery", {
         method: "POST",
         body: formData,
       });
@@ -69,17 +69,9 @@ const AdminGallery = () => {
   };
 
   useEffect(() => {
-    fetch("https://api.hill.az/api/amburan-gallery")
+    fetch("https://api.nane.az/api/gallery")
       .then((res) => res.json())
-      .then((res) => {
-        setBadDataImgs(res);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch("https://api.hill.az/api/amburan-text/1")
-      .then((res) => res.json())
-      .then((res) => setBadDataText(res));
+      .then((res) => {setBadDataImgs(res), console.log(res)});
   }, []);
   
   const handleAmburanEdit = (e) => {
@@ -90,7 +82,7 @@ const AdminGallery = () => {
  
 
   const handleDelete = (id) => {
-    fetch(`https://api.hill.az/api/amburan-gallery/${id}`, {
+    fetch(`https://api.nane.az/api/gallery/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +108,7 @@ const AdminGallery = () => {
       <h1>Qalereya</h1>
       <div className="content">
         <div className="imgContent">
-          {/* {badDataImgs &&
+          {badDataImgs &&
             badDataImgs.map((img, index) => (
               <>
                 <div className="imgBox" key={index}>
@@ -124,8 +116,7 @@ const AdminGallery = () => {
                   <span onClick={() =>handleDelete(img.id)} className="deleteImg">X</span>
                 </div>
               </>
-            ))} */}
-            <h1>Imgs</h1>
+            ))}
         </div>
 
         <div className="textContent">

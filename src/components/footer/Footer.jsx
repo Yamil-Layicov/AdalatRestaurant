@@ -68,7 +68,7 @@ const Footer = () => {
       <hr />
       <div className="downFooter">
         <div className="left">
-          © Adalat Restaurant - Bütün hüquqlar qorunur.
+          © NANA Restaurant - Bütün hüquqlar qorunur.
         </div>
         <div className="socials">
           <img src={fbc} alt="" />
