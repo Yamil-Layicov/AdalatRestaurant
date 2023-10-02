@@ -73,13 +73,19 @@ const AdminGallery = () => {
       .then((res) => res.json())
       .then((res) => {setBadDataImgs(res), console.log(res)});
   }, []);
+
+  useEffect(() => {
+    fetch("https://api.nane.az/api/gallery-text")
+      .then((res) => res.json())
+      .then((res) => {setBadDataText(res), console.log(res)});
+  }, []);
+
+
   
   const handleAmburanEdit = (e) => {
     e.preventDefault();
     setEditPage(true);
   };
-
- 
 
   const handleDelete = (id) => {
     fetch(`https://api.nane.az/api/gallery/${id}`, {
@@ -120,17 +126,12 @@ const AdminGallery = () => {
         </div>
 
         <div className="textContent">
-          {/* {badDataText.content && (
-            <div>
-              <div className="textBox">
-                {badDataText.content.split("\n").map((data) => (
-                  <p key={data} style={{ marginBottom: "30px" }}>
-                    {data}
-                  </p>
-                ))}
-              </div>
-            </div>
-          )} */}
+          {badDataText && 
+             <>
+               <div>{badDataText.content}</div>
+               <div>{badDataText.title}</div>
+             </>
+          }
           <h1>Texts will be</h1>
           <button onClick={handleAmburanEdit} type="submit">
             Yazını dəyiş

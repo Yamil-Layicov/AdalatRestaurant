@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./editModal1.scss";
 
 const EditModal1 = ({ setEditPage1 }) => {

@@ -1,35 +1,35 @@
 import { useEffect, useState } from "react";
-import './editModal.scss'
+import "./editModal.scss";
 
 const EditModal = () => {
-  const [footerContent1, setFooterContent1] = useState("");
 
-  useEffect(() => {
-    fetch("https://api.hill.az/api/amburan-text/1")
+  const [galleryData, setGalleryData] = useState({ title: "" , content: "" });
+
+   useEffect(() => {
+    fetch("https://api.nane.az/api/gallery-text")
       .then((res) => res.json())
-      .then((res) => {
-        setFooterContent1(res.content), console.log(res);
+      .then(({ title, content }) => {
+        setGalleryData({ title, content });
       });
   }, []);
 
-  const handleTextChange = (e) => {
-    setFooterContent1(e.target.value);
+  const handleTextChange = (field, value) => {
+    setGalleryData((prevData) => ({ ...prevData, [field]: value }));
   };
 
   const handleUpload = (e) => {
     e.preventDefault();
 
-    fetch("https://api.hill.az/api/amburan-text/1", {
+    fetch("https://api.nane.az/api/gallery-text", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content: footerContent1 }),
+      body: JSON.stringify(galleryData),
     })
-    .then((res) => res.json())
+      .then((res) => res.json())
       .then((res) => {
         console.log("PUT response:", res);
-        window.location.reload()
       });
   };
 
@@ -39,14 +39,17 @@ const EditModal = () => {
         onSubmit={handleUpload}
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}
       >
-        <textarea
-          style={{ padding: "22px" }}
-          value={footerContent1 || ""}
-          onChange={handleTextChange}
-          cols="30"
-          rows="10"
-          type="text"
-        />
+        {["content", "title"].map((field) => (
+            <textarea
+              key={field}
+              name={field}
+              value={galleryData[field] || ""}
+              onChange={(e) => handleTextChange(field, e.target.value)}
+              cols="45"
+              rows="17"
+              type="text"
+            />
+          ))}
         <button style={{ padding: "8px", cursor: "pointer" }} type="submit">
           Yadda saxla
         </button>
