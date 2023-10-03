@@ -4,6 +4,9 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import img1 from './imgs/a1.jpg'
+import img2 from './imgs/a2.jpg'
+import img4 from './imgs/a4.jpg'
 
 const Slider = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,7 +45,7 @@ const Slider = () => {
         {currentPage === 1 && (
           <div className="firstBox">
             <img
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              src={img1}
               alt=""
             />
             <div className="sliderText">
@@ -74,7 +77,7 @@ const Slider = () => {
         {currentPage === 2 && (
           <div className="secondBox">
             <img
-              src="https://images.unsplash.com/photo-1651873491993-29f701fa520d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              src={img2}
               alt=""
             />
             <div className="sliderText">
@@ -106,7 +109,7 @@ const Slider = () => {
         {currentPage === 3 && (
           <div className="thirdBox">
             <img
-              src="https://images.unsplash.com/photo-1650774894359-c13578ced641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1994&q=80"
+              src={img4}
               alt=""
             />
             <div className="sliderText">
