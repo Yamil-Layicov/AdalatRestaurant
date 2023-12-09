@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-  // const { setUser } = useAuth();
+  const { setUser } = useAuth();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -39,10 +39,10 @@ const Login = () => {
     ) {
       try {
         const response = await axios.post(
-          "https://api.hill.az/api/login",
+          "https://api.nane.az/api/login",
           formData
         );
-        // setUser(response.data.token);
+        setUser(response.data.token);
         navigate("/admin");
         toast.success("Uğurlu giriş", {
           position: "top-center",
@@ -84,7 +84,7 @@ const Login = () => {
   return (
     <div className="loginPage">
       <form onSubmit={handleSubmit}>
-        <h3>Adalat Admin Panel</h3>
+        <h3>Nanə Admin Panel</h3>
         <label>E-poçt</label>
         <input
           type="text"

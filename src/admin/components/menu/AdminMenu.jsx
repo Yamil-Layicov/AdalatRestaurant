@@ -15,8 +15,8 @@ const menu = [
       },
       {
         id: 2,
-        title: "İstifadəçilər",
-        url: "/admin/profil",
+        title: "Tənzimləmələr",
+        url: "/admin/settings",
         icon: "/user.svg",
       },
     ],
@@ -31,12 +31,12 @@ const menu = [
         url: "/admin/about",
         icon: "/user.svg",
       },
-      {
-        id: 2,
-        title: "Footer",
-        url: "/admin/footer",
-        icon: "/product.svg",
-      },
+      // {
+      //   id: 2,
+      //   title: "Footer",
+      //   url: "/admin/footer",
+      //   icon: "/product.svg",
+      // },
       {
         id: 3,
         title: "Menyu",

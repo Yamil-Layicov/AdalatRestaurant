@@ -54,15 +54,8 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                Dadlı və <br /> gözoxşayan  təamlar
+                YAŞILLIQDAN IBARƏT <br /> MƏKANIMIZDA FƏRAHLANIN
               </motion.h1>
-              <motion.h4
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.3, delay: 0.3 }}
-              >
-                Bizim menyumuz -  Ləzzətli təamlarımız.
-              </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -86,15 +79,8 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                Canlı musiqi - Axşamlar xoş <br /> ab-hava sizi gözləyir
+                 ƏN SEVDİKLƏRİNİZLƏ XOŞ <br /> ANLAR  KEÇİRƏCƏYİNİZ MƏKAN
               </motion.h1>
-              <motion.h4
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.3, delay: 0.3 }}
-              >
-                Milli dizaynla bəzədilmiş xoş atmosferli <br /> kabinetlərimiz
-              </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -118,15 +104,8 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                Ləzzətli pivə və <br /> bol məzələr
+                XÜSUSİ ƏTLƏRDƏN ÖZƏL OLARAQ <br /> HAZIRLANAN TƏAMLAR
               </motion.h1>
-              <motion.h4
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.3, delay: 0.3 }}
-              >
-                Gözoxşayan interyer - Milli dizaynda zövq alacaqsınız.
-              </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}

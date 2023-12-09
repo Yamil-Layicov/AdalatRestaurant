@@ -1,69 +1,82 @@
 import { useState, lazy, Suspense } from "react";
 import "./gallery.scss";
-import img from "./menuImg.png";
+import img from "./imgs/menuImg.png";
 const Modal = lazy(() => import("./modal/Modal"));
+import img2 from './imgs/galery-1.jpg';
+import img3 from './imgs/galery-2.jpg';
+import img4 from './imgs/galery-3.jpg';
+import img5 from './imgs/galery-4.jpg';
+import img7 from './imgs/galery-5.jpg';
+import img8 from './imgs/galery-6.jpg';
+import img9 from './imgs/galery-7.jpg';
+import img10 from './imgs/galery-8.jpg';
+import img11 from './imgs/galery-9.jpg';
+import img12 from './imgs/galery-10.jpg';
+import img13 from './imgs/galery-11.jpg';
+import img14 from './imgs/galery-12.jpg';
 
 const Gallery = () => {
+
   const images = [
     {
       id: 1,
       title:
-        "https://images.unsplash.com/photo-1601893211509-81b6d03e46a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        img2,
     },
     {
       id: 2,
       title:
-        "https://images.unsplash.com/photo-1610538625499-635bf13427b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80",
+      img3,
     },
     {
       id: 3,
       title:
-        "https://images.unsplash.com/photo-1679432116921-89f5b227bffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      img4,
     },
     {
       id: 4,
       title:
-        "https://images.unsplash.com/photo-1651873491993-29f701fa520d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RvdXJhbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      img5,
     },
     {
       id: 5,
       title:
-        "https://images.unsplash.com/photo-1657321185221-10dbdc729fe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      img7,
     },
     {
       id: 6,
       title:
-        "https://images.unsplash.com/photo-1631049421483-bbcab9b66473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      img8,
     },
     {
       id: 7,
       title:
-        "https://images.unsplash.com/photo-1679432116921-89f5b227bffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      img9,
     },
     {
       id: 8,
       title:
-        "https://images.unsplash.com/photo-1601893211509-81b6d03e46a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      img10,
     },
     {
       id: 9,
       title:
-        "https://images.unsplash.com/photo-1679432116921-89f5b227bffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      img11,
     },
     {
       id: 10,
       title:
-        "https://images.unsplash.com/photo-1601893211509-81b6d03e46a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      img12,
     },
     {
       id: 11,
       title:
-        "https://images.unsplash.com/photo-1657321185221-10dbdc729fe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      img13,
     },
     {
       id: 12,
       title:
-        "https://images.unsplash.com/photo-1631049421483-bbcab9b66473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      img14,
     },
   ];
 
@@ -97,12 +110,12 @@ const Gallery = () => {
             <img src={img} />
           </div>
           <h1>Qalereya</h1>
-          <p>2005-ci ildən ləzzətli və dadlı yeməklər bişiririk</p>
+          <p>Fərah məkanımızdan zövq alacaqsınız.</p>
         </div>
       </div>
       <div className="galleryTitle">
-        <h1 className="mainMenuTitle">Here some pictures</h1>
-        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+        <h1 className="mainMenuTitle">Gözoxşayan məkanımızdan rəsimlər
+</h1>
       </div>
       <div className="imgBoxContent">
         <div className="imgBox">

@@ -9,9 +9,8 @@ import Error404 from '../pages/error404/Error404'
 import PrivateRoute from './PrivateRoute'
 import AdminLayout from '../admin/adminLayout/AdminLayout'
 import AdminHome from '../admin/pages/home/AdminHome'
-import Users from '../admin/pages/users/Users'
+import Settings from '../admin/pages/setting/Settings'
 import AdminAbout from '../admin/pages/about/AdminAbout'
-import AdminFooter from '../admin/pages/footer/AdminFooter'
 import AdminGallery from '../admin/pages/gallery/AdminGallery'
 import AdminReservation from '../admin/pages/reservation/AdminReservation'
 import AdminMenuPage from '../admin/pages/menu/AdminMenuPage'
@@ -61,16 +60,12 @@ const routes = [
         element: <PrivateRoute><AdminHome /></PrivateRoute>,
       },
       {
-        path: 'profil',
-        element: <PrivateRoute><Users/></PrivateRoute>,
+        path: 'settings',
+        element: <PrivateRoute><Settings/></PrivateRoute>,
       },
       {
         path: 'about',
         element: <PrivateRoute><AdminAbout /></PrivateRoute>,
-      },
-      {
-        path: 'footer',
-        element: <PrivateRoute><AdminFooter /></PrivateRoute>,
       },
       {
         path: 'menu',

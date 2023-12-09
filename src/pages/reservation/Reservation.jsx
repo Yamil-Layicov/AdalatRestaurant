@@ -84,7 +84,6 @@ const Reservation = () => {
             <img src={img} />
           </div>
           <h1>Stol rezerv edin</h1>
-          <p>2005-ci ildən ləzzətli və dadlı yeməklər bişiririk</p>
         </div>
       </div>
 

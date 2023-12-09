@@ -5,7 +5,7 @@ import WifiCalling3OutlinedIcon from "@mui/icons-material/WifiCalling3Outlined";
 import fbc from "../../assets/socials/facebook_icon.svg";
 import ins from "../../assets/socials/instagram_icon.svg";
 import twt from "../../assets/socials/twitter_icon.svg";
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 
 const Footer = () => {
   return (
@@ -22,11 +22,9 @@ const Footer = () => {
             <span className="icon">
               <LocationOnOutlinedIcon fontSize="medium" />
             </span>
-            <span className="title">Address</span>
+            <span className="title">Ünvan</span>
           </div>
-          <p>
-            97845 Baker st. 567 <br /> Los Angeles - US
-          </p>
+          <p>Ələsgər Qayıbov 12 22</p>
         </div>
         <div className="boxFooter">
           <div
@@ -39,11 +37,11 @@ const Footer = () => {
             <span className="icon">
               <WifiCalling3OutlinedIcon fontSize="medium" />
             </span>
-            <span className="title">Reservations</span>
+            <span className="title">Rezervasiya</span>
           </div>
           <p>
-            +94 423-23-221 <br />
-            reservations@Foores.com
+            070 805 03 05 <br /> 050 805 03 05
+            
           </p>
         </div>
         <div className="boxFooter">
@@ -51,30 +49,30 @@ const Footer = () => {
             <AccessTimeOutlinedIcon fontSize="medium" />
           </span>
           <span className="title">İş saatları</span>
-          <p>
-            Mon - Sat: 10am - 11pm
-            <br /> Sunday: Closed
-          </p>
+          <p>Bazar er: - Bazar: 09:00 - 00:00</p>
         </div>
 
         <div className="boxFooter">
           <h5>Əlaqə saxlayın</h5>
           <div className="emailSend">
             <input type="text" placeholder="E-poçt" />
-            <div className="sendBtn"><ChevronRightOutlinedIcon fontSize="medium"/></div>
+            <div className="sendBtn">
+              <ChevronRightOutlinedIcon fontSize="medium" />
+            </div>
           </div>
         </div>
       </div>
       <hr />
       <div className="downFooter">
-        <div className="left">
-          © NANA Restaurant - Bütün hüquqlar qorunur.
-        </div>
-        <div className="socials">
-          <img src={fbc} alt="" />
-          <img src={ins} alt="" />
-          <img src={twt} alt="" />
-        </div>
+        <div className="left">© Ədalət Restoran - Bütün hüquqlar qorunur.</div>
+        {/* <div className="socials">
+          <a href="https://www.facebook.com/nanelounge" target="_blank">
+            <img src={fbc} alt="" />
+          </a>
+          <a href="https://www.instagram.com/naneterrace/" target="_blank">
+            <img src={ins} alt="" />
+          </a>
+        </div> */}
       </div>
     </div>
   );

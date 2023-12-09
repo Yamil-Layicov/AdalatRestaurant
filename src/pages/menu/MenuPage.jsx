@@ -1,295 +1,202 @@
 import "./menuPage.scss";
-import img from "./menuImg.png";
+import img from "./coverImgs/menuImg.png";
+import food1 from './foodsImgs/img1.jpg';
+import food2 from './foodsImgs/img2.jpg';
+import food3 from './foodsImgs/img3.jpg';
+import food4 from './foodsImgs/img4.jpg';
+import food5 from './foodsImgs/img5.jpg';
+import food6 from './foodsImgs/img6.jpg';
+import food7 from './foodsImgs/img7.jpg';
+import food8 from './foodsImgs/img8.jpg';
+import food9 from './foodsImgs/img9.jpg';
+import food10 from './foodsImgs/img10.jpg';
+import food11 from './foodsImgs/img11.jpg';
+import food12 from './foodsImgs/img12.jpg';
+import food13 from './foodsImgs/img13.jpg';
+import food14 from './foodsImgs/img14.jpg';
+import food15 from './foodsImgs/img15.jpg';
+import food16 from './foodsImgs/img16.jpg';
+
+
+// import { Link } from "react-router-dom";
+// import pdf from "./pdf/Menu.pdf";
 
 const MenuPage = () => {
+
+  // const routeLink = () => {
+  //   navigate("/menu");
+  //   window.scrollTo({
+  //     top: 0,
+  //   });
+  // };
+
   return (
     <div className="mainMenu">
       <div className="menuPage">
         <div className="menu">
           <div className="img">
-            {" "}
             <img src={img} />
           </div>
-          <h1>Menyu başlıqları</h1>
-          <p>2005-ci ildən ləzzətli və dadlı yeməklər bişiririk</p>
+          <h1>Menyu</h1>
+          <p>Dadlı və gözoxşayan təamlar</p>
         </div>
       </div>
       <div>
-         <h1 className="mainMenuTitle">Əsas yeməklər</h1>
-         <div className="menuOptions">
-          <div className="food">
+        <h1 className="mainMenuTitle">Əsas yeməklər</h1>
+        <div className="menuOptions">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food1} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Döymə</p>
+            <p className="line"></p>
+            <p className="price">9 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food2} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Şah Plov</p>
+            <p className="line"></p>
+            <p className="price">40 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food3} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Steyk </p>
+            <p className="line"></p>
+            <p className="price">15 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food4} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Toyuq kababı</p>
+            <p className="line"></p>
+            <p className="price">6 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food5} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Julyen</p>
+            <p className="line"></p>
+            <p className="price">7 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food6} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Düşbərə </p>
+            <p className="line"></p>
+            <p className="price">4.5 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food7} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Paytaxt salatı</p>
+            <p className="line"></p>
+            <p className="price">5 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food8} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Sezar salatı</p>
+            <p className="line"></p>
+            <p className="price">10 AZN</p>
           </div>
         </div>
       </div>
       <div>
-      <div className="boxContent">
-        <div className="boxHeaderMenu">
-          <p>SPECIAL OFFER</p>
-          <h1>Burgher Menu $18 only</h1>
-          <p>Hamburgher, Chips, Mix Sausages</p>
-          <button>Rezerv et</button>
-          <div className="backColor"></div>
+        <div className="boxContent">
+          <div className="boxHeaderMenu">
+            <h1>Ləzzətli menyu</h1>
+            <p>Kabablar, qazan yeməkləri və içkilər</p>
+            {/* <button onClick={routeLink}>Daha ətraflı</button> */}
+            <div className="backColor"></div>
+          </div>
         </div>
-      </div>
-         <h1 className="mainMenuTitle">Şirniyyat və İçkilər</h1>
-         <div className="menuOptions">
-          <div className="food">
+        <h1 className="mainMenuTitle">Kabablar və içkilər</h1>
+        <div className="menuOptions">
+        <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food9} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Dana basdırma </p>
+            <p className="line"></p>
+            <p className="price">9 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food10} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title"> Tikə  </p>
+            <p className="line"></p>
+            <p className="price">8 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                alt=""
-              />
+              <img src={food11} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Toyuq kabab </p>
+            <p className="line"></p>
+            <p className="price">6 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food12} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Tərəvəz (mövsümü)</p>
+            <p className="line"></p>
+            <p className="price">1 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food13} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Dolma  </p>
+            <p className="line"></p>
+            <p className="price">6 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food14} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Quzu buğlama </p>
+            <p className="line"></p>
+            <p className="price">8 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food15} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Hinduşka şabalıdlı</p>
+            <p className="line"></p>
+            <p className="price">12 AZN</p>
           </div>
-          <div className="food">
+          <div className="foodBox">
             <div className="img">
-              <img
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={food16} alt="" />
             </div>
-            <div className="foodTitle">
-              <h4>Summer Berry</h4>
-              <p>Raspberries, Blackberries</p>
-            </div>
-            <div className="lineBorder"></div>
-            <div className="priceFood">
-              12 <small>AZN</small>
-            </div>
+            <p className="title">Mal əti buğlama </p>
+            <p className="line"></p>
+            <p className="price">8 AZN</p>
           </div>
         </div>
       </div>
-      <div className="menuBtn">Menyunu Yüklə</div>
+      {/* <div className="menuBtn">
+        <Link
+          style={{ textDecoration: "none", color: "white", paddingLeft: "6px" }}
+          to={pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Menyu
+        </Link>
+      </div> */}
     </div>
   );
 };

@@ -1,25 +1,23 @@
 import "./about.scss";
+import img from "./img1.jpg";
 
 const About = () => {
   return (
     <div className="about">
       <div className="left">
-        <img
-          src="https://images.unsplash.com/photo-1532635211-8ec15f2ce05c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-          alt=""
-        />
+        <img src={img} alt="" />
       </div>
       <div className="right">
         <h1>Haqqımızda</h1>
         <p>
-          Şəhərin mərkəzində yerləşən restoranımız 2018-cı ildən fəaliyyət
-          göstərir. Milli mətbəximizin ləzzətli təamlarından dadaraq, ailə və
-          dostlarınızla xoş vaxtı bizimlə keçirə bilərsiniz. Şeflərimizin xüsusi
-          və sizə özəl olaraq hazırladığı yeməklərin dadını bir daha
-          unutmayacaqsınız. <br /> <br /> Həm dostlarla əylənəcəyiniz, həm də aillənizlə xoş
-          vaxt keçirəcəyiniz kabinetlərimiz xüsusi dizaynı ilə seçilir. Axşamlar
-          ifa olunan canlı musiqi isə ruhunuzun dincəlməsi üçün möhtəşəm bir
-          imkandır.
+          Ədalət restoranı 2019-cu ildən fəaliyyət göstərir. <br /> <br /> Təamlarımız mahir
+          aşpazlar tərəfindən sizə özəl olaraq hazırlanır. Bizim üçün mühüm olan
+          yalnız dadlı yeməklər təqdim etmək deyil, həm də sizə ən yaxşı xidməti
+          göstərməkdir. Yaşıllıqlarla əhatə olunmuş milli dizayndakı 27 ədəd
+          kabinetlərimizdən zövq alacaqsınız. Həmçinin, xüsusi tədbirlərinizi
+          qeyd etmək üçün geniş və komfortlu zallarımızda mövcuddur. <br /><br /> Ədalət
+          Restoranında rahat və səmimi mühitdə öz sevdiklərinizlə birlikdə milli
+          mətbəximizin ən dadlı yeməklərini dadıb, ən xoş anları yaşayacaqsınız.
         </p>
       </div>
     </div>
