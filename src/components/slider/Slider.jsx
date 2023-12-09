@@ -52,21 +52,21 @@ const Slider = () => {
               <motion.h1
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, delay: 0.1 }}
+                transition={{ duration: 1, delay: 0.1 }}
               >
-                Taste <br /> Uique Food
+                Dadlı və <br /> gözoxşayan  təamlar
               </motion.h1>
               <motion.h4
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 2, delay: 0.5 }}
+                transition={{ duration: 1.3, delay: 0.3 }}
               >
-                Cooking delicuos food since 2005
+                Bizim menyumuz -  Ləzzətli təamlarımız.
               </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 2, delay: 0.8 }}
+                transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
                 Rezerv edin
@@ -84,21 +84,21 @@ const Slider = () => {
               <motion.h1
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, delay: 0.1 }}
+                transition={{ duration: 1, delay: 0.1 }}
               >
-                Taste <br /> Uique Food
+                Canlı musiqi - Axşamlar xoş <br /> ab-hava sizi gözləyir
               </motion.h1>
               <motion.h4
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 2, delay: 0.5 }}
+                transition={{ duration: 1.3, delay: 0.3 }}
               >
-                Cooking delicuos food since 2005
+                Milli dizaynla bəzədilmiş xoş atmosferli <br /> kabinetlərimiz
               </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 2, delay: 0.8 }}
+                transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
                 Rezerv edin
@@ -116,21 +116,21 @@ const Slider = () => {
               <motion.h1
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, delay: 0.1 }}
+                transition={{ duration: 1, delay: 0.1 }}
               >
-                Taste <br /> Uique Food
+                Ləzzətli pivə və <br /> bol məzələr
               </motion.h1>
               <motion.h4
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
+                transition={{ duration: 1.3, delay: 0.3 }}
               >
-                Cooking delicuos food since 2005
+                Gözoxşayan interyer - Milli dizaynda zövq alacaqsınız.
               </motion.h4>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, delay: 0.8 }}
+                transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
                 Rezerv edin

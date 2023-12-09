@@ -12,15 +12,14 @@ const About = () => {
       <div className="right">
         <h1>Haqqımızda</h1>
         <p>
-          Cum doctus civibus efficiantur in imperdiet deterruisset. 
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum. 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Şəhərin mərkəzində yerləşən restoranımız 2018-cı ildən fəaliyyət
+          göstərir. Milli mətbəximizin ləzzətli təamlarından dadaraq, ailə və
+          dostlarınızla xoş vaxtı bizimlə keçirə bilərsiniz. Şeflərimizin xüsusi
+          və sizə özəl olaraq hazırladığı yeməklərin dadını bir daha
+          unutmayacaqsınız. <br /> <br /> Həm dostlarla əylənəcəyiniz, həm də aillənizlə xoş
+          vaxt keçirəcəyiniz kabinetlərimiz xüsusi dizaynı ilə seçilir. Axşamlar
+          ifa olunan canlı musiqi isə ruhunuzun dincəlməsi üçün möhtəşəm bir
+          imkandır.
         </p>
       </div>
     </div>
