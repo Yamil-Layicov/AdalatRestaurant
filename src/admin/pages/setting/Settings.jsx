@@ -1,36 +1,35 @@
 import "./settings.scss";
 import { useEffect, useState } from "react";
+import { FiUploadCloud } from "react-icons/fi";
+import { toast } from "react-toastify";
 import api from "../../api/posts";
 
+const labels=["Ünvan","Email","Tel-1","Tel-2","Qanunlar"]
 
 const Settings = () => {
-  const [content1, setContent1] = useState([]);
-  const [content2, setContent2] = useState([]);
-  const [content3, setContent3] = useState([]);
-  const [content4, setContent4] = useState([]);
-  const [content5, setContent5] = useState([]);
-  const [content6, setContent6] = useState([]);
-  const [content7, setContent7] = useState([]);
-
-  const [logo, setlogo] = useState(null);
-  const [previouslogo, setPreviouslogo] = useState(null);
-
+  const [settings, setSettings] = useState({
+    address: "",
+    email: "",
+    phone_1: "",
+    phone_2: "",
+    rights: "",
+  });
 
   useEffect(() => {
     const fetchSettings = async () => {
       try {
         const response = await api.get("settings");
-        console.log(response.data);
 
-        setContent1(response.data.address);
-        setContent2(response.data.email);
-        setContent3(response.data.phone);
-        setContent4(response.data.facebook);
-        setContent5(response.data.instagram);
-        setContent6(response.data.rights);
-        setContent7(response.data.phone);
-
-        setlogo(response.data.logo);
+        setSettings((prevSettings) => ({
+          ...Object.fromEntries(
+            Object.entries(response.data)
+              .map(([key, value]) =>
+                prevSettings.hasOwnProperty(key) ? [key, value] : null
+              )
+              .filter(Boolean)
+          ),
+          previousLogo: response.data.logo,
+        }));
       } catch (error) {
         console.error(error);
       }
@@ -39,21 +38,19 @@ const Settings = () => {
     fetchSettings();
   }, []);
 
-  const handlelogo = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSettings((prevSettings) => ({ ...prevSettings, [name]: value }));
+  };
+
+  const handleImage = (e) => {
     const file = e.target.files[0];
-    setlogo(file);
 
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        setPreviouslogo(e.target.result);
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      setPreviouslogo(null);
-    }
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      logo: file,
+      previousLogo: file ? URL.createObjectURL(file) : null,
+    }));
   };
 
   const handleUpload = async (e) => {
@@ -61,20 +58,13 @@ const Settings = () => {
 
     try {
       const formData = new FormData();
-      formData.append("address", content1);
-      formData.append("email", content2);
-      formData.append("phone", content3);
-      formData.append("facebook", content4);
-      formData.append("instagram", content5);
-      formData.append("rights", content6);
-      formData.append("phone", content7);
-      formData.append("logo", logo);
+      Object.entries(settings).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
 
       const response = await api.post("settings", formData);
 
-      if(response) return setTimeout(() => {
-        window.location.reload()
-      }, 1000);
+      if (response) toast.success("ugurlu");
     } catch (error) {
       console.log(error);
     }
@@ -85,67 +75,39 @@ const Settings = () => {
       <h4>Tənzimləmələr</h4>
       <div className="intoSettings">
         <form onSubmit={handleUpload}>
-          <div>
-            <label>Ünvan *</label>
-            <input
-              type="text"
-              value={content1 || ""}
-              onChange={(e) => setContent1(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Elektron ünvan *</label>
-            <input
-              type="text"
-              value={content2 || ""}
-              onChange={(e) => setContent2(e.target.value)}
-            />
-          </div>
-          {/* <div>
-            <label>Telefon(mobil) *</label>
-            <input
-              type="number"
-              value={content3 || ""}
-              onChange={(e) => setContent3(e.target.value)}
-            />
-          </div> */}
-          <div>
-            <label>Telefon(ofis) *</label>
-            <input
-              type="text"
-              value={content7 || ""}
-              onChange={(e) => setContent7(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Facebook Keçidi *</label>
-            <input
-              type="text"
-              value={content4 || ""}
-              onChange={(e) => setContent4(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>İnstagram Keçidi*</label>
-            <input
-              type="text"
-              value={content5 || ""}
-              onChange={(e) => setContent5(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Hüquqlar *</label>
-            <input
-              type="text"
-              value={content6 || ""}
-              onChange={(e) => setContent6(e.target.value)}
-            />
-          </div>
-          <div className="logoFile">
-            <div>
-              <label>Logo</label>
-                <img style={{width:"100px"}} src={previouslogo || logo} alt="" />
-              <input type="file" accept="image/*" onChange={handlelogo} />
+          {Object.entries(settings).map(
+            ([key, value],index) =>
+              key !== "previousLogo" &&
+              key !== "logo" && (
+                <div className="inputs" key={key}>
+                  <label>{labels[index]} *</label>
+                  <input
+                    type="text"
+                    name={key}
+                    value={value}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              )
+          )}
+          <div className="imageFile">
+            <div className="logoBox">
+              <label htmlFor="logo">
+                <div className="logo">
+                  <span>
+                    <FiUploadCloud />{" "}
+                  </span>
+                  <span className="text">Logo</span>
+                </div>
+                <img src={settings.previousLogo} alt="" />
+              </label>
+              <input
+                id="logo"
+                name="logo"
+                type="file"
+                accept="image/*"
+                onChange={handleImage}
+              />
             </div>
           </div>
           <button type="submit">Yadda saxla</button>

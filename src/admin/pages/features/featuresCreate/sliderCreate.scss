@@ -1,32 +1,33 @@
-.adminSettings{
-    padding-left:  20px;
+.sliderCreate{
+    font-family: "Poppins", sans-serif;
+    padding-left: 20px;
 
     h4{
         font-size: 28px;
-        font-family: 'Poppins', sans-serif;
+        padding-bottom: 20px;
     }
     .intoSettings{
-        width: 80%;
+        width: 100%;
+        height: 100%;
         border-radius: 3px;
-        margin: 40px 0;
 
         form{
             border-radius: 5px;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            font-family: 'Poppins', sans-serif;
             input, textarea{
                 border: none;
                 outline: none;
+                border: 1px solid rgba(184, 184, 184, 0.575);
                 border-radius: 3px;
                 padding: 12px 12px;
                 font-size: 15px;
-                font-family: 'Poppins', sans-serif;
+                font-family: "Poppins", sans-serif;
                 resize: vertical;
             }
 
-            .inputs{
+            .div{
                 display: flex;
                 flex-direction: column;
                 gap: 6px;
@@ -38,8 +39,6 @@
                         cursor: pointer;
                         .logo{
                             font-size: 24px;
-                            display: flex;
-                            align-items: center;
                             gap: 10px;
                             padding-bottom: 10px;
 
@@ -60,22 +59,32 @@
                 }
             }
 
-            button{
-                color: black;
-                border: none;
-                border-radius: 3px;
-                padding: 12px;
-                font-size: 18px;
-                width: 180px;
-                transition: all .3s ease-in-out;
-                border: 2px solid #2A3447;
-
-                &:hover{
-                    background-color: #2A3447;
-                    color: white;
-                    cursor: pointer;
-                    border: 2px solid white;
-                }
+            .buttons{
+                display: flex;
+                gap: 10px;
+                button{
+                    padding: 10px 14px;
+                    font-size: 16px;
+                    margin: 0 3px;
+                    border: 2px solid #2A3447;
+            
+                    &:first-child{
+                        background-color: #32CD32;
+                      color: white;
+                    }
+            
+                    &:last-child{
+                        background-color: #3081D0;
+                      color: white;
+                    }
+                    
+                    &:hover{
+                      background-color: #2A3447;
+                      color: white;
+                      cursor: pointer;
+                      border: 2px solid white;
+                  }
+                  }
             }
         }
     }

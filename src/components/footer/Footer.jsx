@@ -2,10 +2,8 @@ import "./footer.scss";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import WifiCalling3OutlinedIcon from "@mui/icons-material/WifiCalling3Outlined";
-import fbc from "../../assets/socials/facebook_icon.svg";
-import ins from "../../assets/socials/instagram_icon.svg";
-import twt from "../../assets/socials/twitter_icon.svg";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+
 
 const Footer = () => {
   return (
@@ -49,9 +47,8 @@ const Footer = () => {
             <AccessTimeOutlinedIcon fontSize="medium" />
           </span>
           <span className="title">İş saatları</span>
-          <p>Bazar er: - Bazar: 09:00 - 00:00</p>
+          <p>Bazar ertəsi: - Bazar: 09:00 - 00:00</p>
         </div>
-
         <div className="boxFooter">
           <h5>Əlaqə saxlayın</h5>
           <div className="emailSend">

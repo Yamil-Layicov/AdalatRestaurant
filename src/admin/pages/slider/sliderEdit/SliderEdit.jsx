@@ -1,23 +1,26 @@
-import "./adminAbout.scss";
+import "./sliderEdit.scss";
 import { useEffect, useState } from "react";
-import api from "../../api/posts";
+import api from "../../../api/posts";
+import { useParams, useNavigate } from "react-router-dom";
 import { FiUploadCloud } from "react-icons/fi";
+import { toast } from "react-toastify";
 
-const AdminAbout = () => {
+
+const SliderEdit = () => {
   const [title, setTitle] = useState([]);
-  const [content, setContent] = useState([]);
 
   const [image, setImage] = useState(null);
   const [previousImage, setPreviousImage] = useState(null);
 
+  const {id} = useParams();
+  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const response = await api.get("about");
+        const response = await api.get(`sliders/${id}`);
 
-        setContent(response.data.content);
-        setTitle(response.data.title);
-
+        setTitle(response.data.text);
         setImage(response.data.image);
       } catch (error) {
         console.error(error);
@@ -26,7 +29,6 @@ const AdminAbout = () => {
 
     fetchSettings();
   }, []);
-
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -50,72 +52,65 @@ const AdminAbout = () => {
 
     try {
       const formData = new FormData();
-      formData.append("content", content);
-      formData.append("title", title);
+      formData.append("text", title);
 
       formData.append("image", image);
 
-      const response = await api.post("about", formData);
+      const response = await api.post(`sliders/${id}`, formData);
 
-      if (response)
-        return setTimeout(() => {
-          window.location.reload();
-        }, 1000);
+      if(response){
+        toast.success("Redaktə olundu")
+        navigate(-1)
+      }
+
     } catch (error) {
+      toast.error("Xəta bas verdi")
       console.log(error);
     }
   };
 
+
   return (
-    <div className="adminAbout">
-      <h4>Haqqımızda</h4>
+    <div className="sliderEdit">
+      <h4>Redaktə et</h4>
       <div className="intoSettings">
         <form onSubmit={handleUpload}>
           <div className="div">
-            <label>Başlıq *</label>
-            <input
-              type="text"
-              value={title || ""}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-
-          <div className="div">
-            <label>Məzmun *</label>
+            <label>Məzmun  *</label>
             <textarea
               cols="30"
-              rows="7"
-              value={content || ""}
-              onChange={(e) => setContent(e.target.value)}
+              rows="2"
+              value={title || ""}
+              onChange={(e) => setTitle(e.target.value)}
             ></textarea>
+            
           </div>
-
           <div className="imageFile div">
-            <div className="inputBox">
-              <label htmlFor="img1">
-                <div className="textIcon">
-                  <span>
-                    <FiUploadCloud />
-                  </span>
-                  <span>Şəkil</span>
-                </div>
-                <img src={previousImage || image} alt="" />
+            <div className="logoBox">
+              <label htmlFor="logo">
+              <div className="logo"> 
+                <span><FiUploadCloud /> </span>
+                <span className="text">Şəkil</span>
+              </div>
+              <img src={previousImage || image} alt="" />
               </label>
-
               <input
-                id="img1"
+                id="logo"
+                name="logo"
                 type="file"
                 accept="image/*"
                 onChange={handleImage}
               />
             </div>
           </div>
-
+          <div className="buttons">
           <button type="submit">Yadda saxla</button>
+          <button type="submit" onClick={() => navigate("/admin/slider")}>Geri Qayıt</button>
+          </div>
         </form>
       </div>
     </div>
   );
 };
 
-export default AdminAbout;
+export default SliderEdit;
