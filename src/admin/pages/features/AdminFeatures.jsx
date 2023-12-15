@@ -2,10 +2,8 @@ import "./adminSlider.scss";
 import api from "../../api/posts";
 import { useNavigate } from "react-router-dom";
 import { BiEditAlt } from "react-icons/bi";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {  useQuery, } from "@tanstack/react-query";
 import { ProgressBar } from "react-loader-spinner";
-import { toast } from "react-toastify";
 
 
 const AdminFeatures = () => {
@@ -16,28 +14,6 @@ const AdminFeatures = () => {
     navigate(`${id}`);
   };
 
-  const handleCreate = () => {
-    navigate("yarat");
-  };
-
-  const handleDelete = (id) => {
-    mutation.mutate(id)
-  };
-
-
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation({
-    mutationFn:(id) => {
-      return api.delete(`features/${id}`)
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries(["features"])
-      .then(
-        toast.success("Uğurla silindi")
-      )
-    }
-  })
 
 
   const { isLoading, data } = useQuery({
@@ -52,9 +28,6 @@ const AdminFeatures = () => {
       <h4>Headers</h4>
 
       <div className="tableContent">
-        <div className="createNewBtn">
-          <button onClick={handleCreate}>Yenisini yarat +</button>
-        </div>
         <table>
           <thead>
             <tr>
@@ -89,12 +62,9 @@ const AdminFeatures = () => {
                   </td>
                   <td>{item?.title}</td>
                   <td>{item?.content}</td>
-                  <td  style={{width:"110px", padding:"12px"}}>
+                  <td>
                     <button onClick={() => handleEdit(item.id)}>
                       <BiEditAlt />
-                    </button>
-                    <button onClick={() => handleDelete(item.id)}>
-                      <RiDeleteBin5Line />
                     </button>
                   </td>
                 </tr>

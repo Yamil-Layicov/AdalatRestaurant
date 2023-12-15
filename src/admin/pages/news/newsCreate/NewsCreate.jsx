@@ -104,7 +104,7 @@ const NewsCreate = () => {
               <label htmlFor="logo">
                 <div className="logo">
                   <span>
-                    <FiUploadCloud />{" "}
+                    <FiUploadCloud />
                   </span>
                   <span className="text">Şəkil</span>
                 </div>

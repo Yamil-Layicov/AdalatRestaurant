@@ -161,7 +161,7 @@ const Banners = () => {
               <label htmlFor="logo3">
               <div className="logo"> 
                 <span><FiUploadCloud /> </span>
-                <span className="text">İcarə</span>
+                <span className="text">Qalareya</span>
               </div>
               <img src={previousImage3 || image3} alt="" />
               </label>
@@ -182,7 +182,7 @@ const Banners = () => {
               <label htmlFor="logo4">
               <div className="logo"> 
                 <span><FiUploadCloud /> </span>
-                <span className="text">Əlaqə</span>
+                <span className="text">Rezervasiya</span>
               </div>
               <img src={previousImage4 || image4} alt="" />
               </label>

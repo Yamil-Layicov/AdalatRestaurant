@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const FeaturesEdit = () => {
   const [title, setTitle] = useState([]);
+  const [content, setContent] = useState([]);
 
   const [image, setImage] = useState(null);
   const [previousImage, setPreviousImage] = useState(null);
@@ -18,9 +19,10 @@ const FeaturesEdit = () => {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const response = await api.get(`sliders/${id}`);
+        const response = await api.get(`features/${id}`);
 
-        setTitle(response.data.text);
+        setTitle(response.data.title);
+        setContent(response.data.content);
         setImage(response.data.image);
       } catch (error) {
         console.error(error);
@@ -53,10 +55,10 @@ const FeaturesEdit = () => {
     try {
       const formData = new FormData();
       formData.append("text", title);
-
+      formData.append("content", content);
       formData.append("image", image);
 
-      const response = await api.post(`sliders/${id}`, formData);
+      const response = await api.post(`features/${id}`, formData);
 
       if(response){
         toast.success("Redaktə olundu")
@@ -76,12 +78,22 @@ const FeaturesEdit = () => {
       <div className="intoSettings">
         <form onSubmit={handleUpload}>
           <div className="div">
-            <label>Məzmun  *</label>
+            <label>Başlıq *</label>
             <textarea
               cols="30"
               rows="2"
               value={title || ""}
               onChange={(e) => setTitle(e.target.value)}
+            ></textarea>
+            
+          </div>
+          <div className="div">
+            <label>Mətn *</label>
+            <textarea
+              cols="30"
+              rows="2"
+              value={content || ""}
+              onChange={(e) => setContent(e.target.value)}
             ></textarea>
             
           </div>

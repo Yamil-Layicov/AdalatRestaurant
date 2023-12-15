@@ -55,12 +55,12 @@ const menu = [
     id: 3,
     title: "general",
     listItems: [
-      {
-        id: 1,
-        title: "Rezervasiya",
-        url: "/admin/reservation",
-        icon: "/element.svg",
-      },
+      // {
+      //   id: 1,
+      //   title: "Rezervasiya",
+      //   url: "/admin/reservation",
+      //   icon: "/element.svg",
+      // },
       {
         id: 2,
         title: "Banners",
@@ -75,40 +75,40 @@ const menu = [
       },
       {
         id: 4,
-        title: "Calendar",
-        url: "/admin",
+        title: "Qalereya",
+        url: "/admin/gallery",
         icon: "/calendar.svg",
       },
     ],
   },
-  {
-    id: 4,
-    title: "Maintenance",
-    listItems: [
-      {
-        id: 1,
-        title: "Settings",
-        url: "/admin",
-        icon: "/setting.svg",
-      },
-      {
-        id: 2,
-        title: "Backups",
-        url: "/admin",
-        icon: "/backup.svg",
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   title: "Maintenance",
+  //   listItems: [
+  //     {
+  //       id: 1,
+  //       title: "Settings",
+  //       url: "/admin",
+  //       icon: "/setting.svg",
+  //     },
+  //     {
+  //       id: 2,
+  //       title: "Backups",
+  //       url: "/admin",
+  //       icon: "/backup.svg",
+  //     },
+  //   ],
+  // },
   {
     id: 5,
     title: "analytics",
     listItems: [
-      {
-        id: 1,
-        title: "Charts",
-        url: "/admin",
-        icon: "/chart.svg",
-      },
+      // {
+      //   id: 1,
+      //   title: "Charts",
+      //   url: "/admin",
+      //   icon: "/chart.svg",
+      // },
       {
         id: 2,
         title: "Çıxış",
