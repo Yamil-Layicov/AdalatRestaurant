@@ -1,7 +1,17 @@
 import "./about.scss";
 import img from "./img1.jpg";
+import { useQuery } from "@tanstack/react-query";
+import api from '../../admin/api/posts';
 
 const About = () => {
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["about"],
+    queryFn: () => api.get("about"),
+  });
+
+  console.log(data?.data);
+
   return (
     <div className="about">
       <div className="left">

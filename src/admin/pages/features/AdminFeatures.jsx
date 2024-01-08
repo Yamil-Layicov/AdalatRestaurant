@@ -21,7 +21,6 @@ const AdminFeatures = () => {
     queryFn: () => api.get("features"),
   });
 
-  console.log(data?.data);
 
   return (
     <div className="adminSlider">

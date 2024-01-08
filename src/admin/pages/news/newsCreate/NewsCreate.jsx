@@ -59,7 +59,7 @@ const NewsCreate = () => {
 
   return (
     <div className="bloqCreate">
-      <h4>Yeni xəbər</h4>
+      <h4>Yeni yemek</h4>
       <div className="intoSettings">
         <form onSubmit={handleUpload}>
           <div className="div">

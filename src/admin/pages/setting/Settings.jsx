@@ -63,8 +63,10 @@ const Settings = () => {
       });
 
       const response = await api.post("settings", formData);
-
-      if (response) toast.success("ugurlu");
+      if(response){
+        window.location.reload()
+      }
+      
     } catch (error) {
       console.log(error);
     }

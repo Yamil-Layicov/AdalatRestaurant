@@ -5,13 +5,28 @@ import './navbar.scss'
 import { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom'
 import logo from './logo.jpeg'
+import api from '../../admin/api/posts';
 
 
 
 function Header() {
 
   const [navbar, setNavbar] = useState(false);
-  const [isMenuCollapsed, setIsMenuCollapsed] = useState(true);
+  const [navData, setNavdata] = useState(null)
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await api.get("settings");
+        setNavdata(response.data)
+        
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchSettings();
+  }, []);
 
 
   const changeBackground = () => {
@@ -36,13 +51,11 @@ function Header() {
     };
   }, []);
 
-
-
   
   return (
     <Navbar collapseOnSelect expand="lg" className={`bg-body-tertiary navbar ${navbar && "navbarActive"}`}>
         <div className='logo'>
-          <img src={logo} alt="" />
+          <img  src={navData?.logo} alt="" />
         </div>
         <Navbar.Toggle  aria-controls="responsive-navbar-nav" className='menuIcon'/>
         <Navbar.Collapse id="responsive-navbar-nav show" className='menuText'>
@@ -53,7 +66,7 @@ function Header() {
             <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
             <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
             {/* <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink> */}
-            <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink>
+            {/* <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink> */}
           </Nav>
         </Navbar.Collapse>  
     </Navbar>

@@ -4,10 +4,9 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import img1 from './imgs/a1.jpg'
-import img2 from './imgs/a2.jpg'
-import img4 from './imgs/a4.jpg'
-
+import { useQuery } from "@tanstack/react-query";
+import api from '../../admin/api/posts';
+  
 const Slider = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,8 +21,14 @@ const Slider = () => {
   const navigate = useNavigate();
 
   const moveToReservPage = () => {
-    navigate("/reservation");
+    navigate("/gallery");
   };
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["sliders"],
+    queryFn: () => api.get("sliders"),
+  });
+
 
   return (
     <div className="slider">
@@ -45,7 +50,7 @@ const Slider = () => {
         {currentPage === 1 && (
           <div className="firstBox">
             <img
-              src={img1}
+              src={data?.data[0].image}
               alt=""
             />
             <div className="sliderText">
@@ -54,7 +59,7 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                YAŞILLIQDAN IBARƏT <br /> MƏKANIMIZDA FƏRAHLANIN
+                {data?.data[0].text}
               </motion.h1>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
@@ -62,7 +67,7 @@ const Slider = () => {
                 transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
-                Rezerv edin
+                Qalereya
               </motion.button>
             </div>
           </div>
@@ -70,7 +75,7 @@ const Slider = () => {
         {currentPage === 2 && (
           <div className="secondBox">
             <img
-              src={img2}
+              src={data?.data[1].image}
               alt=""
             />
             <div className="sliderText">
@@ -79,7 +84,7 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                 ƏN SEVDİKLƏRİNİZLƏ XOŞ <br /> ANLAR  KEÇİRƏCƏYİNİZ MƏKAN
+                 {data?.data[1].text}
               </motion.h1>
               <motion.button
                 initial={{ opacity: 0, x: -100 }}
@@ -87,7 +92,7 @@ const Slider = () => {
                 transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
-                Rezerv edin
+                Qalereya
               </motion.button>
             </div>
           </div>
@@ -95,7 +100,7 @@ const Slider = () => {
         {currentPage === 3 && (
           <div className="thirdBox">
             <img
-              src={img4}
+              src={data?.data[2].image}
               alt=""
             />
             <div className="sliderText">
@@ -104,7 +109,7 @@ const Slider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
-                XÜSUSİ ƏTLƏRDƏN ÖZƏL OLARAQ <br /> HAZIRLANAN TƏAMLAR
+                {data?.data[2].text}
               </motion.h1>
               <motion.button
                 initial={{ opacity: 0, x: 100 }}
@@ -112,7 +117,7 @@ const Slider = () => {
                 transition={{ duration: 1.4, delay: 0.6 }}
                 onClick={moveToReservPage}
               >
-                Rezerv edin
+                Qalereya
               </motion.button>
             </div>
           </div>

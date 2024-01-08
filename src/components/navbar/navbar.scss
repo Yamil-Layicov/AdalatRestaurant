@@ -7,15 +7,17 @@
   padding-right: 60px;
 
   .logo {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
-    background-color: transparent;
+      object-fit: cover;
   }
 
   img {
-    width: 100%;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
+    object-fit: cover;
   }
 
   .navLink {
@@ -23,14 +25,13 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-    font-size: 18px;
+    font-size: 17px;
     color: white;
 
     .link {
       text-decoration: none;
       color: white;
       transition: all 0.3s ease-in-out;
-      font-weight: bold;
       &:hover {
         cursor: pointer;
         color: red;

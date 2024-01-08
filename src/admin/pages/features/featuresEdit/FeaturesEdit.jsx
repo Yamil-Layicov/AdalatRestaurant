@@ -54,7 +54,7 @@ const FeaturesEdit = () => {
 
     try {
       const formData = new FormData();
-      formData.append("text", title);
+      formData.append("title", title);
       formData.append("content", content);
       formData.append("image", image);
 
@@ -117,7 +117,7 @@ const FeaturesEdit = () => {
           </div>
           <div className="buttons">
           <button type="submit">Yadda saxla</button>
-          <button type="submit" onClick={() => navigate("/admin/slider")}>Geri Qayıt</button>
+          <button type="submit" onClick={() => navigate("/admin/header")}>Geri Qayıt</button>
           </div>
         </form>
       </div>

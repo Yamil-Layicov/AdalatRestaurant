@@ -49,7 +49,6 @@ const AdminNews = () => {
     queryFn: () => api.get("menu"),
   });
 
-  console.log(blogData?.data);
 
 
   const { isLoading: isLoadingCategories, data: categoryData } = useQuery({
@@ -143,7 +142,7 @@ const AdminNews = () => {
 
       <div className="tableContent">
         <div className="createNewBtn">
-          <button onClick={handleCreate}>Yeni xeber yarat +</button>
+          <button onClick={handleCreate}>Yeni yemek yarat +</button>
         </div>
         <table>
           <thead>

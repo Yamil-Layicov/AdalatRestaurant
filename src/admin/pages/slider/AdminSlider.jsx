@@ -45,7 +45,6 @@ const AdminSlider = () => {
     queryFn: () => api.get("sliders"),
   });
 
-  console.log(data?.data);
 
   return (
     <div className="adminSlider">
