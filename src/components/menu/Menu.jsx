@@ -9,6 +9,10 @@ import food6 from './foodsImgs/menyu-6.jpg';
 import food7 from './foodsImgs/menu-7.jpg';
 import food8 from './foodsImgs/menu-8.jpg';
 import pdf from './pdf/Menu.pdf'
+import api from '../../admin/api/posts';
+import TruncatedText from "../../helpers/TruncatedText";
+import { useQuery } from "@tanstack/react-query";
+
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -19,6 +23,12 @@ const Menu = () => {
       top: 0,
     });
   };
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["menu"],
+    queryFn: () => api.get("menu"),
+  });
+
 
   return (
     <div className="menu">
@@ -33,94 +43,20 @@ const Menu = () => {
       </div>
       
       <div className="menuOptions">
-        <div className="foodBox">
+        {data?.data && data.data.map(food => 
+          <div className="foodBox" key={food.id}>
           <div className="img">
             <img
-              src={food1}
+              src={food.image}
               alt=""
             />
           </div>
-          <p className="title">Döymə</p>
+          <p className="title">{food.title}</p>
           <p className="line"></p>
-          <p className="price">9 AZN</p>
+          <p className="price">{food.price} AZN</p>
         </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food2}
-              alt=""
-            />
-          </div>
-          <p className="title">Şah Plov</p>
-          <p className="line"></p>
-          <p className="price">40 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food3}
-              alt=""
-            />
-          </div>
-          <p className="title">Steyk </p>
-          <p className="line"></p>
-          <p className="price">15 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food4}
-              alt=""
-            />
-          </div>
-          <p className="title">Toyuq kababı</p>
-          <p className="line"></p>
-          <p className="price">6 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food5}
-              alt=""
-            />
-          </div>
-          <p className="title">Julyen</p>
-          <p className="line"></p>
-          <p className="price">7 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food6}
-              alt=""
-            />
-          </div>
-          <p className="title">Düşbərə  </p>
-          <p className="line"></p>
-          <p className="price">4.5 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food7}
-              alt=""
-            />
-          </div>
-          <p className="title">Paytaxt salatı</p>
-          <p className="line"></p>
-          <p className="price">5 AZN</p>
-        </div>
-        <div className="foodBox">
-          <div className="img">
-            <img
-              src={food8}
-              alt=""
-            />
-          </div>
-          <p className="title">Sezar salatı</p>
-          <p className="line"></p>
-          <p className="price">10 AZN</p>
-        </div>
+        ) 
+        }
       </div>
       {/* <div className="menuBtn">
          <Link style={{textDecoration:"none", color:"white", paddingLeft:"6px"}} to={pdf} target="_blank" rel="noopener noreferrer">Menyu</Link>

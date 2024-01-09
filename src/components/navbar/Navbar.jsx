@@ -4,9 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.scss'
 import { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom'
-import logo from './logo.jpeg'
 import api from '../../admin/api/posts';
-
 
 
 function Header() {
@@ -58,6 +56,9 @@ function Header() {
           <img  src={navData?.logo} alt="" />
         </div>
         <Navbar.Toggle  aria-controls="responsive-navbar-nav" className='menuIcon'/>
+        {/* <button aria-controls="responsive-navbar-nav" type='button' aria-label="Toggle navigation" className='menuIcon navbar-toggler collapsed'>
+          <span className='navbar-toggler-icon'></span>
+        </button> */}
         <Navbar.Collapse id="responsive-navbar-nav show" className='menuText'>
           <Nav className="me-auto">
           </Nav>
@@ -65,8 +66,6 @@ function Header() {
             <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/' className='link'>Əsas</NavLink>
             <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/menu' className='link'>Menyu</NavLink>
             <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/gallery' className='link'>Qalereya</NavLink>
-            {/* <NavLink style={({isActive}) => ({color: isActive ? "chocolate" : ''})} onClick={() => moveToTop()} to='/about' className='link'>Haqqımızda</NavLink> */}
-            {/* <NavLink style={({isActive}) => ({color: isActive ? "red" : ''})} onClick={() => moveToTop()} to='/reservation' className='reservation link'>Rezervasiya</NavLink> */}
           </Nav>
         </Navbar.Collapse>  
     </Navbar>

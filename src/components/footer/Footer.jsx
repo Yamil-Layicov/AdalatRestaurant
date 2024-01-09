@@ -3,9 +3,18 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import WifiCalling3OutlinedIcon from "@mui/icons-material/WifiCalling3Outlined";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+import { useQuery } from "@tanstack/react-query";
+import api from '../../admin/api/posts';
 
 
 const Footer = () => {
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["settings"],
+    queryFn: () => api.get("settings"),
+  });
+
+
   return (
     <div className="footer">
       <div className="upFooter">
@@ -22,7 +31,7 @@ const Footer = () => {
             </span>
             <span className="title">Ünvan</span>
           </div>
-          <p>Ələsgər Qayıbov 12 22</p>
+          <p>{data?.data.address}</p>
         </div>
         <div className="boxFooter">
           <div
@@ -38,7 +47,7 @@ const Footer = () => {
             <span className="title">Rezervasiya</span>
           </div>
           <p>
-            070 805 03 05 <br /> 050 805 03 05
+            {data?.data.phone_1}<br /> {data?.data.phone_2}
             
           </p>
         </div>
@@ -61,7 +70,7 @@ const Footer = () => {
       </div>
       <hr />
       <div className="downFooter">
-        <div className="left">© Ədalət Restoran - Bütün hüquqlar qorunur.</div>
+        <div className="left">© {data?.data.rights}</div>
         {/* <div className="socials">
           <a href="https://www.facebook.com/nanelounge" target="_blank">
             <img src={fbc} alt="" />

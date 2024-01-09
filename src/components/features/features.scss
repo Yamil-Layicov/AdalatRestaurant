@@ -9,45 +9,30 @@
 
     .box{
         position: relative;
-        background-position: center;
-        background-repeat: no-repeat, repeat;
-        background-size: cover;
+        // background-position: center;
+        // background-repeat: no-repeat, repeat;
+        // background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
         transition: all .3s ease-in-out;
-        
+
         &::after{
-            content: "asdasda";
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.085);
-            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.345);
         }
-
-        img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-
-            
-           
-        }
+      
 
         &:hover{
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
             cursor: pointer;
         }
-
-
        
 
         div{
@@ -73,11 +58,11 @@
     }
 
     .box:nth-child(2){
-        background-image: url("./imgs/a2.jpg");
+        // background-image: url("./imgs/a2.jpg");
     }
 
     .box:nth-child(3){
-        background-image: url("./imgs/a4.jpg");
+        // background-image: url("./imgs/a4.jpg");
     }
    
 }

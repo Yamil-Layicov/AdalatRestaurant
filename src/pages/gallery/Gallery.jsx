@@ -14,6 +14,8 @@ import img11 from './imgs/galery-9.jpg';
 import img12 from './imgs/galery-10.jpg';
 import img13 from './imgs/galery-11.jpg';
 import img14 from './imgs/galery-12.jpg';
+import { useQuery } from "@tanstack/react-query";
+import api from '../../admin/api/posts';
 
 const Gallery = () => {
 
@@ -102,9 +104,27 @@ const Gallery = () => {
     );
   };
 
+  const { data } = useQuery({
+    queryKey: ["gallery"],
+    queryFn: () => api.get("gallery"),
+  });
+
+  const { data:dataBanner } = useQuery({
+    queryKey: ["banners/gallery"],
+    queryFn: () => api.get("banners/gallery"),
+  });
+
+
   return (
     <div className="mainGallery">
-      <div className="menuPage">
+      <div className="menuPage" style={{
+          backgroundImage: `url(${dataBanner?.data.image})`,
+          width: "100%",
+          height: "70vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}>
         <div className="menu">
           <div className="img">
             <img src={img} />
@@ -119,9 +139,9 @@ const Gallery = () => {
       </div>
       <div className="imgBoxContent">
         <div className="imgBox">
-          {images.map((img, index) => (
+          {data?.data.map((img, index) => (
             <div className="img" key={img.id} onClick={() => openModal(index)}>
-              <img src={img.title} alt={`Image ${img.id}`} />
+              <img src={img.image} alt={`Image ${img.id}`} />
             </div>
           ))}
         </div>
