@@ -2,6 +2,8 @@ import "./menuPage.scss";
 import img from "./coverImgs/menuImg.png";
 import { useQuery } from "@tanstack/react-query";
 import api from "../../admin/api/posts";
+import pdf from '../../components/menu/pdf/Menu.pdf';
+import { Link } from "react-router-dom";
 
 const MenuPage = () => {
   const {  data } = useQuery({
@@ -78,7 +80,7 @@ const MenuPage = () => {
             ))}
         </div>
       </div>
-      {/* <div className="menuBtn">
+      <div className="menuBtn">
         <Link
           style={{ textDecoration: "none", color: "white", paddingLeft: "6px" }}
           to={pdf}
@@ -87,7 +89,7 @@ const MenuPage = () => {
         >
           Menyu
         </Link>
-      </div> */}
+      </div>
     </div>
   );
 };

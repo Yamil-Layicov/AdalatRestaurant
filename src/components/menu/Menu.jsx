@@ -1,16 +1,7 @@
 import "./menu.scss";
 import { useNavigate, Link } from "react-router-dom";
-import food1 from './foodsImgs/menyu-1.jpg';
-import food2 from './foodsImgs/menu-2.jpg';
-import food3 from './foodsImgs/menu-3.jpg';
-import food4 from './foodsImgs/menu-4.jpg';
-import food5 from './foodsImgs/menu-5.jpg';
-import food6 from './foodsImgs/menyu-6.jpg';
-import food7 from './foodsImgs/menu-7.jpg';
-import food8 from './foodsImgs/menu-8.jpg';
 import pdf from './pdf/Menu.pdf'
 import api from '../../admin/api/posts';
-import TruncatedText from "../../helpers/TruncatedText";
 import { useQuery } from "@tanstack/react-query";
 
 
@@ -24,7 +15,7 @@ const Menu = () => {
     });
   };
 
-  const { isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["menu"],
     queryFn: () => api.get("menu"),
   });
@@ -58,9 +49,9 @@ const Menu = () => {
         ) 
         }
       </div>
-      {/* <div className="menuBtn">
+      <div className="menuBtn">
          <Link style={{textDecoration:"none", color:"white", paddingLeft:"6px"}} to={pdf} target="_blank" rel="noopener noreferrer">Menyu</Link>
-      </div> */}
+      </div>
     </div>
   );
 };
