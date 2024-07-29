@@ -18,11 +18,9 @@ const About = () => {
       </div>
       <div className="right">
         <h1>{data?.data.title}</h1>
-        <p>
-          {data?.data.content && (
+          {data?.data?.content && (
             <TruncatedText text={data?.data.content}/>
           )}
-        </p>
       </div>
     </div>
   );

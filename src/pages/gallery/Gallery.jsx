@@ -139,7 +139,7 @@ const Gallery = () => {
       </div>
       <div className="imgBoxContent">
         <div className="imgBox">
-          {data?.data.map((img, index) => (
+          {data?.data?.map((img, index) => (
             <div className="img" key={img.id} onClick={() => openModal(index)}>
               <img src={img.image} alt={`Image ${img.id}`} />
             </div>

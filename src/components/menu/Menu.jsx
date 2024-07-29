@@ -34,7 +34,7 @@ const Menu = () => {
       </div>
       
       <div className="menuOptions">
-        {data?.data && data.data.map(food => 
+        {data?.data && data?.data.map(food => 
           <div className="foodBox" key={food.id}>
           <div className="img">
             <img
