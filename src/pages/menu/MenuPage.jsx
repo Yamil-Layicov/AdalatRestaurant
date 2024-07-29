@@ -4,18 +4,26 @@ import { useQuery } from "@tanstack/react-query";
 import api from "../../admin/api/posts";
 import pdf from '../../components/menu/pdf/Menu.pdf';
 import { Link } from "react-router-dom";
+import { SyncLoader } from "react-spinners";
 
 const MenuPage = () => {
-  const {  data } = useQuery({
+  const { isLoading: isBannerLoading, data } = useQuery({
     queryKey: ["banners/menu"],
     queryFn: () => api.get("banners/menu"),
   });
 
-  const { data: dataMenu } = useQuery({
+  const { isLoading: isMenuLoading, data: dataMenu } = useQuery({
     queryKey: ["menu"],
     queryFn: () => api.get("menu"),
   });
 
+  if (isBannerLoading || isMenuLoading) {
+    return (
+      <div className="spinner">
+        <SyncLoader size={15} color={"red"} loading={true} />
+      </div>
+    );
+  }
 
   return (
     <div className="mainMenu">
@@ -42,15 +50,15 @@ const MenuPage = () => {
         <h1 className="mainMenuTitle">Əsas yeməklər</h1>
         <div className="menuOptions">
           {dataMenu?.data
-            .filter((item) => item.category.name == "Əsas yeməklər")
+            .filter((item) => item.category.name === "Əsas yeməklər")
             .map((food) => (
-              <div className="foodBox" key={food.id}>
+              <div className="foodBox" key={food?.id}>
                 <div className="img">
-                  <img src={food.image} alt="" />
+                  <img src={food?.image} alt="" />
                 </div>
-                <p className="title">{food.title}</p>
+                <p className="title">{food?.title}</p>
                 <p className="line"></p>
-                <p className="price">{food.price} AZN</p>
+                <p className="price">{food?.price} AZN</p>
               </div>
             ))}
         </div>
@@ -60,22 +68,21 @@ const MenuPage = () => {
           <div className="boxHeaderMenu">
             <h1>Ləzzətli menyu</h1>
             <p>Kabablar, qazan yeməkləri və içkilər</p>
-            {/* <button onClick={routeLink}>Daha ətraflı</button> */}
             <div className="backColor"></div>
           </div>
         </div>
         <h1 className="mainMenuTitle">Kabablar və içkilər</h1>
         <div className="menuOptions">
-        {dataMenu?.data
-            .filter((item) => item.category.name == "Kabablar və içkilər")
+          {dataMenu?.data
+            .filter((item) => item.category.name === "Kabablar və içkilər")
             .map((food) => (
-              <div className="foodBox" key={food.id}>
+              <div className="foodBox" key={food?.id}>
                 <div className="img">
-                  <img src={food.image} alt="" />
+                  <img src={food?.image} alt="" />
                 </div>
-                <p className="title">{food.title}</p>
+                <p className="title">{food?.title}</p>
                 <p className="line"></p>
-                <p className="price">{food.price} AZN</p>
+                <p className="price">{food?.price} AZN</p>
               </div>
             ))}
         </div>

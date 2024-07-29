@@ -25,7 +25,7 @@ const PieChartBox = () => {
               paddingAngle={5}
               dataKey="value"
             >
-              {data.map((item) => (
+              {data?.map((item) => (
                 <Cell key={item.name} fill={item.color} />
               ))}
             </Pie>
@@ -33,7 +33,7 @@ const PieChartBox = () => {
         </ResponsiveContainer>
       </div>
       <div className="options">
-        {data.map((item) => (
+        {data?.map((item) => (
           <div className="option" key={item.name}>
             <div className="title">
               <div className="dot" style={{ backgroundColor: item.color }} />

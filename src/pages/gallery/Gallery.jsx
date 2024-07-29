@@ -1,86 +1,13 @@
 import { useState, lazy, Suspense } from "react";
 import "./gallery.scss";
-import img from "./imgs/menuImg.png";
 const Modal = lazy(() => import("./modal/Modal"));
-import img2 from './imgs/galery-1.jpg';
-import img3 from './imgs/galery-2.jpg';
-import img4 from './imgs/galery-3.jpg';
-import img5 from './imgs/galery-4.jpg';
-import img7 from './imgs/galery-5.jpg';
-import img8 from './imgs/galery-6.jpg';
-import img9 from './imgs/galery-7.jpg';
-import img10 from './imgs/galery-8.jpg';
-import img11 from './imgs/galery-9.jpg';
-import img12 from './imgs/galery-10.jpg';
-import img13 from './imgs/galery-11.jpg';
-import img14 from './imgs/galery-12.jpg';
 import { useQuery } from "@tanstack/react-query";
 import api from '../../admin/api/posts';
+import img from './imgs/menuImg.png';
 
 const Gallery = () => {
 
-  const images = [
-    {
-      id: 1,
-      title:
-        img2,
-    },
-    {
-      id: 2,
-      title:
-      img3,
-    },
-    {
-      id: 3,
-      title:
-      img4,
-    },
-    {
-      id: 4,
-      title:
-      img5,
-    },
-    {
-      id: 5,
-      title:
-      img7,
-    },
-    {
-      id: 6,
-      title:
-      img8,
-    },
-    {
-      id: 7,
-      title:
-      img9,
-    },
-    {
-      id: 8,
-      title:
-      img10,
-    },
-    {
-      id: 9,
-      title:
-      img11,
-    },
-    {
-      id: 10,
-      title:
-      img12,
-    },
-    {
-      id: 11,
-      title:
-      img13,
-    },
-    {
-      id: 12,
-      title:
-      img14,
-    },
-  ];
+
 
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,12 +22,12 @@ const Gallery = () => {
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % data?.data?.length);
   };
 
   const handlePrev = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + data?.data?.length) % data?.data?.length
     );
   };
 
@@ -118,7 +45,7 @@ const Gallery = () => {
   return (
     <div className="mainGallery">
       <div className="menuPage" style={{
-          backgroundImage: `url(${dataBanner?.data.image})`,
+          backgroundImage: `url(${dataBanner?.data?.image})`,
           width: "100%",
           height: "70vh",
           backgroundSize: "cover",
@@ -152,7 +79,7 @@ const Gallery = () => {
           <Modal
             showModal={showModal}
             closeModal={closeModal}
-            images={images}
+            images={data?.data}
             currentIndex={currentIndex}
             handleNext={handleNext}
             handlePrev={handlePrev}

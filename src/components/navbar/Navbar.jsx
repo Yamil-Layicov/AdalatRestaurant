@@ -53,7 +53,7 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" className={`bg-body-tertiary navbar ${navbar && "navbarActive"}`}>
         <div className='logo'>
-          <img  src={navData?.logo} alt="" />
+          {navData?.logo ? <img  src={navData?.logo} alt="" /> : ""}
         </div>
         <Navbar.Toggle  aria-controls="responsive-navbar-nav" className='menuIcon'/>
         {/* <button aria-controls="responsive-navbar-nav" type='button' aria-label="Toggle navigation" className='menuIcon navbar-toggler collapsed'>

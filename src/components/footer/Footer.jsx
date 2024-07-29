@@ -31,7 +31,7 @@ const Footer = () => {
             </span>
             <span className="title">Ünvan</span>
           </div>
-          <p>{data?.data.address}</p>
+          <p>{data?.data?.address}</p>
         </div>
         <div className="boxFooter">
           <div
@@ -47,7 +47,7 @@ const Footer = () => {
             <span className="title">Rezervasiya</span>
           </div>
           <p>
-            {data?.data.phone_1}<br /> {data?.data.phone_2}
+            {data?.data?.phone_1}<br /> {data?.data?.phone_2}
             
           </p>
         </div>
@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
       <hr />
       <div className="downFooter">
-        <div className="left">© {data?.data.rights}</div>
+        <div className="left">© {data?.data?.rights}</div>
         {/* <div className="socials">
           <a href="https://www.facebook.com/nanelounge" target="_blank">
             <img src={fbc} alt="" />

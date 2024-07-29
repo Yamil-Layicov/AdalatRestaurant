@@ -3,7 +3,6 @@ import { useAuth } from "../../context/AuthContext";
 import "./login.scss";
 import axios from "axios";
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,65 +20,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    if (!formData.email || !formData.password) {
-      toast.error("E-poçt və parol boş ola bilməz", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else if (
-      formData.email === "jafaraghamaliyev@gmail.com" &&
-      formData.password === "cefer123"
-    ) {
-      try {
-        const response = await axios.post(
-          "https://api.nane.az/api/login",
-          formData
-        );
-        setUser(response.data.token);
-        navigate("/admin");
-        toast.success("Uğurlu giriş", {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } catch (error) {
-        toast.error("Server xətası", {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-    } else {
-      toast.error("E-poçt və ya parol səhvdir", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
+
+    const response = await axios.post(
+      "https://api.edal-et.az/api/login",
+      formData
+    );
+    setUser(response?.data?.token);
+    navigate("/admin");
   };
-  
 
   return (
     <div className="loginPage">

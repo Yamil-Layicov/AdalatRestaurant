@@ -163,6 +163,12 @@
             background-color: red;
         }
     }
+    .spinner{
+        min-height: 93vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (max-width:600px) {

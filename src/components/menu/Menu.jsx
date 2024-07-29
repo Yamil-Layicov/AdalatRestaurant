@@ -15,7 +15,7 @@ const Menu = () => {
     });
   };
 
-  const { data } = useQuery({
+  const {isLoading, data } = useQuery({
     queryKey: ["menu"],
     queryFn: () => api.get("menu"),
   });
@@ -34,7 +34,7 @@ const Menu = () => {
       </div>
       
       <div className="menuOptions">
-        {data?.data && data?.data.map(food => 
+        {isLoading ? "Loading" : data?.data?.map(food => 
           <div className="foodBox" key={food.id}>
           <div className="img">
             <img
@@ -46,7 +46,7 @@ const Menu = () => {
           <p className="line"></p>
           <p className="price">{food.price} AZN</p>
         </div>
-        ) 
+        )
         }
       </div>
       <div className="menuBtn">

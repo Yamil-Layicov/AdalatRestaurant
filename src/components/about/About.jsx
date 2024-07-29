@@ -14,13 +14,13 @@ const About = () => {
   return (
     <div className="about">
       <div className="left">
-        <img src={data?.data.image} alt="" />
+        {isLoading ? "Loading" :<img src={data?.data?.image} alt="" />}
       </div>
       <div className="right">
-        <h1>{data?.data.title}</h1>
-          {data?.data?.content && (
+        {isLoading? "Loading" : <h1>{data?.data?.title}</h1>}
+          {data?.data?.content ? (
             <TruncatedText text={data?.data.content}/>
-          )}
+          ) : "Loading"}
       </div>
     </div>
   );

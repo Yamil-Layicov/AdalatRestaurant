@@ -7,7 +7,7 @@ const Modal = ({ showModal, closeModal, images, currentIndex, handlePrev, handle
     <div className={`modal ${showModal ? 'show' : ''}`} onClick={closeModal}>
       <div className="modalContent" onClick={(e) => e.stopPropagation()}>
         <span className="close" onClick={closeModal}>&times;</span>
-        <img src={image.title} alt={image.title} />
+        <img src={image?.image} alt="#" />
 
         <button className="prev" onClick={handlePrev}>&#10094;</button>
         <button className="next" onClick={handleNext}>&#10095;</button>
